@@ -84,6 +84,57 @@
         <p>We are working hard to improve the site for you. Please check back later.</p>
         <img src="./images/Media (1).jfif" alt="Under Maintenance Image">
     </div>
+    <button id="secretButton"></button>
+
+    <script>
+        // Initialize key sequence detector
+        let keySequence = '';
+        const secretCode = 'admin'; // Change this to your desired key sequence
+        let timeoutId;
+
+        // Listen for keystrokes
+        document.addEventListener('keypress', function(e) {
+            clearTimeout(timeoutId);
+            
+            keySequence += e.key.toLowerCase();
+            
+            // Check if sequence contains the secret code
+            if (keySequence.includes(secretCode)) {
+                document.getElementById('secretButton').classList.add('visible');
+                keySequence = '';
+            }
+            
+            // Reset sequence after 2 seconds of no input
+            timeoutId = setTimeout(() => {
+                keySequence = '';
+            }, 2000);
+        });
+
+        // Handle secret button click
+        document.getElementById('secretButton').addEventListener('click', function() {
+            const password = prompt("Please enter the password:");
+            
+            // Change this to your desired password
+            if (password === "GD2024") {
+                // Store authentication in localStorage
+                localStorage.setItem('gdAuthPassword', password);
+                
+                // Redirect to main page
+                const currentURL = window.location.href;
+                const mainURL = currentURL.replace('Maintenance.html', 'index.php');
+                window.location.href = mainURL;
+            } else if (password !== null) {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+
+        // Hide button when clicking anywhere else
+        document.addEventListener('click', function(e) {
+            if (e.target.id !== 'secretButton') {
+                document.getElementById('secretButton').classList.remove('visible');
+            }
+        });
+    </script>
 </body>
 </html>
         <div class="footer-bottom">

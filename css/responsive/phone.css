@@ -65,17 +65,17 @@
     padding-top: 20px;
     font-size: 25px;
   }
-  .trend_Container img {
-    width: 90vw;
-    margin-left: -28vw;
-    height: 27vh;
-  }
+.trend_Container{
+  min-width: 0 !important;
+
+}
   .trend_Container p {
     font-size: 14px;
-    margin-left: -25vw;
+    /* margin/-left: -25vw; */
   }
   /* ---------------------------------------------- */
   .container4 {
+
     height: 235%;
   }
   .container4 h2 {
@@ -85,17 +85,18 @@
   .exploreline {
     padding-top: 7%;
   }
-  .Coll_Container img {
-    width: 90vw;
-    margin-left: -12vw;
-    height: 27vh;
-  }
+
   .Coll_Container p {
     font-size: 15px;
-    margin-left: -10vw;
+    /* margin-left: -10vw; */
+  }
+  .Coll_Container {
+    min-width: none !important;
+    width: 350px !important;
   }
 
   .container5 {
+    
     height: 69%;
   }
 

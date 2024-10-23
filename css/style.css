@@ -182,7 +182,7 @@ video {
 .Coll_Container {
   height: 260px;
   overflow: hidden;
-  min-width: 400px !important;
+  /* min-width: 400px !important; */
 }
 .Coll_Container img {
   height: 220px;
