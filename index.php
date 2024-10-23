@@ -277,7 +277,7 @@ include("./adminFiles/config.php");
           echo '<div class="row" style="justify-content: space-around">';
         }
     ?>
-        <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container">
+        <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container ">
           <img src="./adminFiles/CollectionItems/<?php echo htmlspecialchars($row['collection_image_url']); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
           <p><?php echo htmlspecialchars($row['collection_name']); ?></p>
         </div>
@@ -462,9 +462,11 @@ include("./adminFiles/config.php");
     <p class="">Copyrights &copy; GD Golds and Diamonds</p>
 
   </div>
-  <script src="./js/navBar.js"></script>
+
+
 
   <script src="./js/main.js"></script>
+  <script src="./js/navBar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <script>
@@ -475,12 +477,24 @@ include("./adminFiles/config.php");
       ride: "carousel", // Auto-start the carousel
     });
   </script>
-<script> window.location.href="Maintenance.html" </script>
+<script> 
+const params = new URLSearchParams(window.location.search);
+
+const showValue = params.get('show');
+
+if (showValue !== null ) {
+  console.log(`The value of the 'show' parameter is: ${showValue}`);
+} else {
+  window.location.href = "Maintenance.html";
+}
+
+</script>
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+  
 </body>
 
 </html>
