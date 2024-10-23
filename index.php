@@ -475,7 +475,7 @@ include("./adminFiles/config.php");
       ride: "carousel", // Auto-start the carousel
     });
   </script>
-
+<script> window.location.href="Maintenance.html" </script>
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
