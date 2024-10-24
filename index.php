@@ -258,7 +258,7 @@ include("./adminFiles/config.php");
   <!-- ------------------------Collections Start-------------------------------- -->
   <div class="container4 text-center">
     <h2 data-aos-delay="100" data-aos="fade-up">- Explore our Collections -</h2>
-    <div data-aos-delay="100" data-aos="fade-up" class="exploreline UnderLine text-center">
+    <div data-aos-delay="100" data-aos="fade-up" class="exploreline UnderLine text-center ourCollectionsUnderline">
       <p></p>
     </div>
     <?php
@@ -356,7 +356,7 @@ include("./adminFiles/config.php");
 
   <!-- ------------------------testimonials Start-------------------------------- -->
   <hr>
-  <div class="container3 text-center">
+  <div class="container3 text-center testimonialsContainer">
     <h1 data-aos-delay="100" data-aos="fade-up">Testimonials</span></h1>
     <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
       <p></p>
@@ -423,7 +423,7 @@ include("./adminFiles/config.php");
         <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
         <div class="row">
           <div class="col-3">
-            <img height="100" src="./images/gdlogo.png" alt="" />
+            <img height="100" class="footerLogo" src="./images/gdlogo.png" alt="" />
           </div>
           <div class="col-8" style="text-align: left;">
             <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
@@ -433,7 +433,7 @@ include("./adminFiles/config.php");
       </div>
       <div style="width: 100% !important" class="footer-info second-column">
         <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-        <a href="https://intelexsolutions.site" class="logo-column">
+        <a  href="https://intelexsolutions.site" class="logo-column">
           <img height="85" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>

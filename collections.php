@@ -66,7 +66,7 @@
 <!-- ------------------------Collections Start-------------------------------- -->
 <div class="container4 text-center">
     <h2  data-aos-delay="100"  data-aos="fade-up">-  our Collections -</h2>
-    <div  data-aos-delay="100"  data-aos="fade-up" class="UnderLine text-center"><p></p></div>
+    <div  data-aos-delay="100"  data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline"><p></p></div>
     <?php
 if ($col_result === FALSE) {
     echo "<p>Error fetching data: " . $conn->error . "</p>";

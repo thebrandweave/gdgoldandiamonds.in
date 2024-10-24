@@ -150,7 +150,7 @@ video {
 .trend_Container {
   height: 260px;
   overflow: hidden;
-  min-width: 450px !important;
+  min-width: 370px !important;
 }
 .trend_Container img {
   height: 220px;
@@ -183,6 +183,8 @@ video {
   height: 260px;
   overflow: hidden;
   /* min-width: 400px !important; */
+  /* min-width: 370px !important ; */
+
 }
 .Coll_Container img {
   height: 220px;
@@ -190,6 +192,7 @@ video {
   width: 100%;
   object-fit: cover;
   border-radius: 10px;
+
 }
 .Coll_Container p {
   margin-top: 10px;

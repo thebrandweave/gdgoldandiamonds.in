@@ -1,5 +1,5 @@
 footer{
-    z-index: 9999999;
+    /* z-index: 9999999; */
     
 }
 .site-footer {
@@ -47,6 +47,7 @@ width: 100vw;
     font-size: 13px;
     margin: 5px 0;
     line-height: 1.5;
+    text-align: justify;
   letter-spacing:1px;
 }
 
