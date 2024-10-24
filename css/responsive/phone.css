@@ -145,3 +145,57 @@
 
 
 }
+
+
+
+/* ipad responsive  */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  .video-container video {
+    width:  200vh !important;
+    opacity: 50%;
+    /* width: 100vw; */
+  }
+  .homePageText {
+    margin-top: 30%;
+    text-align: center;
+  }
+  .section2 img{
+    height: 50%;
+    margin-top: 100px;
+  }
+
+.testimonialsContainer{
+  margin-top: 50px;
+}
+.contactform {
+  height: 100vh !important;
+  min-width: 47.9%;
+  border: 2px solid black;
+}
+.container5 {
+  width: 90%;
+  background-color: #bebebe;
+  height: 100vh;
+  margin: 50px auto;
+}
+.footer-business-address, .footer-business-phone{
+  font-size: 10px;
+}
+.pcFooterCopyright{
+  font-size: 10px !important;
+}
+.footerLogo{
+  height: 70px;
+}
+.logo-column img{
+  height: 60px;
+}
+.third-column ul li a{
+  font-size: 12px;
+
+}
+.ourCollectionsUnderline{
+  margin-top: -5px;
+}
+}
