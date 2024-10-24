@@ -43,7 +43,8 @@ include("./adminFiles/config.php");
       <a href="./about.php" onclick="closeMenu()">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
       <a href="./plans.php" onclick="closeMenu()">PLANS</a>
-      <a href="./contact.php" onclick="closeMenu()">CONTACT</a>
+      <span> <a  href="https://goldendream.in/referral-user/registration/5fOKJqalEd">LOGIN</a>
+      </span>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>
     <div class="menu-shadow" onclick="closeMenu()"></div>
@@ -477,24 +478,23 @@ include("./adminFiles/config.php");
       ride: "carousel", // Auto-start the carousel
     });
   </script>
-<script> 
-const params = new URLSearchParams(window.location.search);
+  <script>
+    const params = new URLSearchParams(window.location.search);
 
-const showValue = params.get('show');
+    const showValue = params.get('show');
 
-if (showValue !== null ) {
-  console.log(`The value of the 'show' parameter is: ${showValue}`);
-} else {
-  window.location.href = "Maintenance.html";
-}
-
-</script>
+    if (showValue !== null) {
+      console.log(`The value of the 'show' parameter is: ${showValue}`);
+    } else {
+      window.location.href = "Maintenance.html";
+    }
+  </script>
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  
+
 </body>
 
 </html>
