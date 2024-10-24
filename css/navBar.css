@@ -134,7 +134,7 @@ header .show-bar:hover {
     top: 0;
     left: -100vw;
     width: 100vw;
-    height: 100vh;
+    height: 100vh !important;
     flex-direction: column;
     background-color: #000;
     padding: 0;

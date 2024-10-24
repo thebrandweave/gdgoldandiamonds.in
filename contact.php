@@ -13,6 +13,7 @@ include("./adminFiles/config.php");
   <link rel="stylesheet" href="./css/navBar.css" />
   <link rel="stylesheet" href="./css/footer.css" />
   <link rel="stylesheet" href="./css/testimonials.css" />
+  <link rel="stylesheet" href="./css//responsive/phone.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- font awesome  -->
@@ -134,8 +135,8 @@ include("./adminFiles/config.php");
         </div>
       </div>
       <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
-        <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p>
-        <a href="https://intelexsolutions.site" class="logo-column">
+      <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
+      <a href="https://intelexsolutions.site" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>
@@ -160,8 +161,14 @@ include("./adminFiles/config.php");
       </nav>
     </div>
   </footer>
+  <div class="phoneFooterCopyright">
+    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
+
+  </div>
 
   <script src="./js/main.js"></script>
+  <script src="./js/navBar.js"></script>  
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <script>

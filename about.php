@@ -14,6 +14,7 @@ include("./adminFiles/config.php");
   <link rel="stylesheet" href="./css/footer.css" />
   <link rel="stylesheet" href="./css/testimonials.css" />
   <link rel="stylesheet" href="./adminFiles/style.css">
+  <link rel="stylesheet" href="./css//responsive/phone.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- font awesome  -->
@@ -21,33 +22,61 @@ include("./adminFiles/config.php");
   <!-- aos animation  -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-body{
+body {
   background: black !important;
   color: white;
 }
 
-    .hero-section {
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-      color: black;
-    }
-    .section-title {
-      margin: 50px 0 30px;
-      font-size: 2.5rem;
-      text-align: center;
-      font-weight: bold;
-    }
-    .icon {
-      font-size: 2rem;
-      color: #ffc107;
-    }
-    .col-md-6{
-      text-align: justify !important;
-    }
-    .card-body{
-      text-align: justify;
-    }
+.hero-section {
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  color: black;
+}
+
+.section-title {
+  margin: 50px 0 30px;
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #ffc107;
+}
+
+.col-md-6 {
+  text-align: justify !important;
+}
+
+.card-body {
+  text-align: justify;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 20px 10px;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+
+  .col-md-6 {
+    text-align: justify !important;
+  }
+
+  .card-body {
+    text-align: justify;
+    font-size: 0.9rem; /* Adjust text size */
+  }
+}
+
   </style>
 </head>
 
@@ -183,8 +212,8 @@ body{
         </div>
       </div>
       <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
-        <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p>
-        <a href="https://intelexsolutions.site" class="logo-column">
+      <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
+      <a href="https://intelexsolutions.site" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>
@@ -209,8 +238,13 @@ body{
       </nav>
     </div>
   </footer>
+  <div class="phoneFooterCopyright">
+    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
+
+  </div>
 
   <script src="./js/main.js"></script>
+  <script src="./js/navBar.js"></script>  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <script>

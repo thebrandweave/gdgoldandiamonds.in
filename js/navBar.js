@@ -10,7 +10,7 @@ function openMenu() {
   menu.classList.add("menu-active");
   openBar.classList.add("hide-bar");
   menuShadow.classList.add("shadow-active");
-  header.style.minHeight= "90vh";
+  header.style.minHeight= "100vh";
 
   // header.style.height= "10vh";
 }
