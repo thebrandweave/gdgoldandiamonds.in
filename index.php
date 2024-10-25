@@ -9,6 +9,7 @@ include("./adminFiles/config.php");
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GD Gold and Diamonds</title>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navBar.css" />
   <link rel="stylesheet" href="./css/footer.css" />
@@ -74,6 +75,7 @@ include("./adminFiles/config.php");
               A Small Investment <br />
               for your Future
             </h2>
+            <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
             </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
@@ -91,13 +93,14 @@ include("./adminFiles/config.php");
             </video>
           </div>
           <div class="homePageImg">
-            <img src="./images/bangle7.png" alt="" />
+            <img src="./images/chain9.png" alt="" />
           </div>
           <div class="homePageText">
             <h2>
-              A Small Investment <br />
-              for your Future
+            Smart Investments, <br>
+            Bright Tomorrows
             </h2>
+            <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
             </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
@@ -115,13 +118,14 @@ include("./adminFiles/config.php");
             </video>
           </div>
           <div class="homePageImg">
-            <img src="./images/chain9.png" alt="" />
+            <img src="./images/earring12.png" alt="" />
           </div>
           <div class="homePageText">
             <h2>
-              A Small Investment <br />
-              for your Future
+            Plant Today,<br>
+            Prosper Tomorrow
             </h2>
+            <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
             </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
@@ -139,13 +143,14 @@ include("./adminFiles/config.php");
             </video>
           </div>
           <div class="homePageImg">
-            <img src="./images/chain11.png" alt="" style="width: 55%; height: 55%;" />
+            <img src="./images/chain13.png" alt="" style="width: 55%; height: 55%;" />
           </div>
           <div class="homePageText">
             <h2>
-              A Small Investment <br />
-              for your Future
+            Secure Your Future,<br>
+             One Step at a Time
             </h2>
+            <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
             </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
@@ -163,13 +168,14 @@ include("./adminFiles/config.php");
             </video>
           </div>
           <div class="homePageImg">
-            <img src="./images/bangle6.png" alt="" />
+            <img src="./images/bracelet11.png" alt="" />
           </div>
           <div class="homePageText">
             <h2>
-              A Small Investment <br />
-              for your Future
+            Invest Now, <br>
+            Reap for a Lifetime
             </h2>
+            <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
             </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
@@ -502,7 +508,7 @@ include("./adminFiles/config.php");
       ride: "carousel", // Auto-start the carousel
     });
   </script>
-  <script>
+  <!-- <script>
     const params = new URLSearchParams(window.location.search);
 
     const showValue = params.get('show');
@@ -513,6 +519,7 @@ include("./adminFiles/config.php");
     } else {
       window.location.href = "Maintenance.html";
     }
+<<<<<<< Updated upstream
   </script>
 =======
 if (showValue !== null ) {
@@ -523,6 +530,9 @@ if (showValue !== null ) {
 
 </script>
 >>>>>>> refs/remotes/origin/main
+=======
+  </script> -->
+>>>>>>> Stashed changes
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
