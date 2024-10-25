@@ -1,0 +1,56 @@
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .price {
+    font-size: 24px;
+    color: #ff8800;
+    font-weight: bold;
+  }
+  .star-rating {
+    color: #ffc107;
+  }
+  .add-to-cart {
+    background-color: #ffcc00;
+    border: none;
+  }
+  .add-to-cart:hover {
+    background-color: #ffaa00;
+  }
+
+  .favorite-btn:hover {
+    color: #ffaa00;
+    border-color: #ffaa00;
+  }
+  .search-bar input {
+    border-radius: 20px;
+    padding: 10px;
+    border: 2px solid #ffcc00;
+  }
+  .search-bar input:focus {
+    outline: none;
+    border-color: #ffaa00;
+  }
+  .search-bar .btn {
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 20px;
+  }
+.imageHeight_CI{
+  height: 100% !important;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px 4px 0px 0px;
+}
+.CI_Card{
+  /* border: 0.5px solid grey !important; */
+  width: 100%;
+  border-radius: 4px !important; 
+}
+.card-img-top {
+  height: 200px !important; /* Set a fixed height for the image container */
+}
+
+.card-body {
+  height: 100px !important; /* Set a fixed height for the text body */
+}
