@@ -284,7 +284,7 @@ include("./adminFiles/config.php");
           echo '<div class="row" style="justify-content: space-around">';
         }
     ?>
-        <a  href="./collectionItems.php?col_id=<?php echo $row['collection_id']; ?>" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container ">
+        <a href="./collectionItems.php?col_id=<?php echo $row['collection_id']; ?>" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
           <img src="./adminFiles/CollectionItems/<?php echo htmlspecialchars($row['collection_image_url']); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
           <p><?php echo htmlspecialchars($row['collection_name']); ?></p>
         </a>
@@ -310,7 +310,7 @@ include("./adminFiles/config.php");
   <div class="container5">
     <div data-aos-delay="100" data-aos="fade-up" class="cont5top">
       <h4>Need Help?</h4>
-      <p>+91 8867575821 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;+91 8867575821</p>
+      <p>+91 73497 39580 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;+91 73497 39580</p>
     </div>
     <div style="background: white; width: 100%; height: 20px"></div>
     <div data-aos-delay="100" data-aos="fade-up" class="container my-5">
@@ -321,8 +321,8 @@ include("./adminFiles/config.php");
             <h2 class="mb-4 golden_Text">Let's get in touch</h2>
             <p class="text-justify">Whether you have a question, need support, or just want to collaborate, we’re here to help. Feel free to reach out to us through the contact details provided or by filling out the form. We look forward to hearing from you!</p>
             <p>#2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p>lorem@ipsum.com</p>
-            <p>123-456-789</p>
+            <p>goldendream6364@gmail.com</p>
+            <p>+91 73497 39580</p>
             <h5>Connect with us:</h5>
             <div class="mt-2">
               <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
@@ -482,7 +482,7 @@ if ($result->num_rows > 0) {
       </div>
       <div style="width: 100% !important" class="footer-info second-column">
         <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-        <a  href="https://intelexsolutions.site" class="logo-column">
+        <a  href="https://intelexsolutions.in" class="logo-column">
           <img height="85" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>
@@ -551,15 +551,12 @@ if (showValue !== null ) {
 >>>>>>> refs/remotes/origin/main
 =======
   </script> -->
->>>>>>> Stashed changes
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-<<<<<<< HEAD
 
-=======
  <script>
   function showVideo() {
     const iframe = document.getElementById("youtubeIframe");
@@ -576,7 +573,6 @@ if (showValue !== null ) {
     iframe.src = "";
   }
  </script>
->>>>>>> refs/remotes/origin/main
 </body>
 
 </html>

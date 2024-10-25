@@ -7,9 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
     
     // Email details
-    $to = "muhammedazlan11@gmail.com";
+    $to = "goldendream6364@gmail.com";
     $subject = "New Contact Form Submission";
-    $headers = "From: " . $email . "\r\n" .
+    $headers = "From: contact@gdgoldanddiamonds.in" .
                "Reply-To: " . $email . "\r\n" .
                "Content-Type: text/html; charset=UTF-8";
 

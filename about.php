@@ -213,7 +213,7 @@ body {
       </div>
       <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
       <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-      <a href="https://intelexsolutions.site" class="logo-column">
+      <a href="https://intelexsolutions.in" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>

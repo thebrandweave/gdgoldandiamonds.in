@@ -130,9 +130,9 @@ $col_id = intval($_GET['col_id']);
                     <?php } ?>
 
                     <!-- Buy Now Button (smaller) -->
-                    <button class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
+                    <a href="https://wa.me/+916361557581?text=Hey,%20i%20wanted%20to%20know%20more%20about%20this%20design" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
                       <i class="bi bi-whatsapp"></i> &nbsp; Buy now
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@ $col_id = intval($_GET['col_id']);
         </div>
         <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
         <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-          <a href="https://intelexsolutions.site" class="logo-column">
+          <a href="https://intelexsolutions.in" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
         </div>

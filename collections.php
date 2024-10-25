@@ -66,7 +66,7 @@
 <!-- ------------------------Collections Start-------------------------------- -->
 <div class="container4 text-center">
     <h2  data-aos-delay="100"  data-aos="fade-up">-  our Collections -</h2>
-    <div  data-aos-delay="100"  data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline"><p></p></div>
+    <div  data-aos-delay="100"  data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline ourCollectionsUnderlinePhone"><p></p></div>
     <?php
 if ($col_result === FALSE) {
     echo "<p>Error fetching data: " . $conn->error . "</p>";
@@ -126,7 +126,7 @@ if ($col_result === FALSE) {
         </div>
         <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
         <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-          <a href="https://intelexsolutions.site" class="logo-column">
+          <a href="https://intelexsolutions.in" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
         </div>

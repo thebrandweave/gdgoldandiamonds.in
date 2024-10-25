@@ -91,6 +91,7 @@ header .show-bar {
   transition: 0.3s ease;
   cursor: pointer;
   border-radius: 5px;
+  color: white;
 }
 header .show-bar:hover {
   background-color: #dddddd63;
