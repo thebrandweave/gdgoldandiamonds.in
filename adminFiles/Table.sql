@@ -85,3 +85,10 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+CREATE TABLE youtube_links (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    yt_link VARCHAR(255) NOT NULL,           -- Column to store the YouTube link
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Column to store the creation date
+    sort_order INT DEFAULT 0                 -- Column for sorting order
+);
