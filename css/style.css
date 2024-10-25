@@ -347,3 +347,66 @@ video {
   z-index: 99;
   animation: zoomInOut 1.5s linear infinite reverse;
 }
+.container3 {
+  padding: 20px;
+}
+
+.cover-container {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+
+.cover-container .cover {
+  width: 100%;
+  height: auto;
+  border-radius: 100px;
+
+}
+
+
+/* Play button styling with increased size and border radius */
+.cover-container .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; 
+  height: 200px; 
+  opacity: 0.8;
+  border-radius: 50%; 
+}
+
+.video-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.video-popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close-button {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 1;
+}
