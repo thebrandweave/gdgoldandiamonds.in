@@ -301,6 +301,30 @@ include("./adminFiles/config.php");
   <?php
   $conn->close();
   ?>
+<!----------------------------------- Youtube video ---------------------------->
+<br>
+<div class="container3 text-center">
+  <h1 data-aos-delay="100" data-aos="fade-up">YouTube</h1>
+
+  <div class="cover-container" onclick="showVideo()" >
+    <img src="./images/gdteam.jpg" class="cover" />
+    <img src="./images/gdlogo.png" alt="Play Button" class="play-button" >
+  </div>
+</div>
+
+<div class="video-popup-overlay" id="videoPopup">
+  <div class="video-popup-content">
+    <span class="close-button" onclick="hideVideo()">&times;</span>
+    <iframe id="youtubeIframe" width="560" height="315" 
+            src="" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+
   <!-- ------------------------contact Start-------------------------------- -->
 
   <div class="container5">
@@ -483,18 +507,47 @@ include("./adminFiles/config.php");
 
     const showValue = params.get('show');
 
+<<<<<<< HEAD
     if (showValue !== null) {
       console.log(`The value of the 'show' parameter is: ${showValue}`);
     } else {
       window.location.href = "Maintenance.html";
     }
   </script>
+=======
+if (showValue !== null ) {
+  console.log(`The value of the 'show' parameter is: ${showValue}`);
+} else {
+  // window.location.href = "Maintenance.html";
+}
+
+</script>
+>>>>>>> refs/remotes/origin/main
   <!-- aos animation script  -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
+<<<<<<< HEAD
 
+=======
+ <script>
+  function showVideo() {
+    const iframe = document.getElementById("youtubeIframe");
+    iframe.src = "https://www.youtube.com/embed/4smhzjT3d1w?autoplay=1";
+    document.getElementById("videoPopup").style.display = "flex";
+  }
+
+  function hideVideo() {
+    const videoPopup = document.getElementById("videoPopup");
+    const iframe = document.getElementById("youtubeIframe");
+
+    // Hide the popup and stop the video by clearing the src
+    videoPopup.style.display = "none";
+    iframe.src = "";
+  }
+ </script>
+>>>>>>> refs/remotes/origin/main
 </body>
 
 </html>

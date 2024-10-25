@@ -163,7 +163,15 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
 
 
         <!-- contents here  -->
-
+<div class="container mt-5">
+  <div class="card" style="width: 70rem;">
+   
+    <div class="card-body">
+      <h5 class="card-title">YouTube Links</h5>
+      <a href="./YTlinks/YT-Links.php" class="btn btn-primary">Add</a>
+    </div>
+  </div>
+</div>
 
 
 
