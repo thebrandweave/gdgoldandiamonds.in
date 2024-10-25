@@ -5,6 +5,7 @@
     /* overflow-x: hidden; */
 
     min-width: 100vw;
+    scroll-behavior: smooth;
   }
   
 
@@ -33,10 +34,12 @@
   }
   .homePageText {
     margin-top: 40%;
+    margin-left: 10%;
     text-align: center;
+    
   }
   .homePageText h2{
-    font-size: 15px;
+    font-size: 25px;
   }
   .homeScreenBtn{
     font-size: 13px !important;
@@ -76,7 +79,7 @@
   /* ---------------------------------------------- */
   .container4 {
 
-    height: 235%;
+    height: 240%;
   }
   .container4 h2 {
     margin-top: 10px;
