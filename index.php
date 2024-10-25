@@ -284,10 +284,10 @@ include("./adminFiles/config.php");
           echo '<div class="row" style="justify-content: space-around">';
         }
     ?>
-        <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container ">
+        <a  href="./collectionItems.php?col_id=<?php echo $row['collection_id']; ?>" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container ">
           <img src="./adminFiles/CollectionItems/<?php echo htmlspecialchars($row['collection_image_url']); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
           <p><?php echo htmlspecialchars($row['collection_name']); ?></p>
-        </div>
+        </a>
     <?php
         $count++;
       }
@@ -303,33 +303,7 @@ include("./adminFiles/config.php");
     <div class="viewMore text-center"><a data-aos-delay="100" data-aos="fade-up" href="./collections.php" class="btn  bg-golden ">View More Collections</a></div>
 
   </div>
-
-  <?php
-  $conn->close();
-  ?>
-<!----------------------------------- Youtube video ---------------------------->
-<br>
-<div class="container3 text-center">
-  <h1 data-aos-delay="100" data-aos="fade-up">YouTube</h1>
-
-  <div class="cover-container" onclick="showVideo()" >
-    <img src="./images/gdteam.jpg" class="cover" />
-    <img src="./images/gdlogo.png" alt="Play Button" class="play-button" >
-  </div>
-</div>
-
-<div class="video-popup-overlay" id="videoPopup">
-  <div class="video-popup-content">
-    <span class="close-button" onclick="hideVideo()">&times;</span>
-    <iframe id="youtubeIframe" width="560" height="315" 
-            src="" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy">
-    </iframe>
-  </div>
-</div>
-
+<!-- <br> -->
 
   <!-- ------------------------contact Start-------------------------------- -->
 
@@ -431,7 +405,6 @@ include("./adminFiles/config.php");
             echo "<p>No testimonials found.</p>";
           }
 
-          $conn->close();
           ?>
         </div>
 
@@ -442,9 +415,55 @@ include("./adminFiles/config.php");
 
     </div>
   </div>
-  <br />
+  <!-- <br /> -->
   <!-- ------------------------Trending End-------------------------------- -->
+<!----------------------------------- Youtube video ---------------------------->
+<div class="div">
+<h1 data-aos-delay="100" data-aos="fade-up">Videos</span></h1>
+    <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
+      <p></p>
+    </div>
 
+<?php
+
+$sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3"; 
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo '
+    <div class="container mt-2">
+        <div class="row justify-content-center">'; 
+
+    while ($yt_row = $result->fetch_assoc()) {
+        $yt_link = $yt_row["yt_link"];
+        $videoID = null;
+
+        if (strpos($yt_link, 'youtube.com') !== false) {
+            parse_str(parse_url($yt_link, PHP_URL_QUERY), $params);
+            $videoID = $params['v'] ?? null;
+        } elseif (strpos($yt_link, 'youtu.be') !== false) {
+            $videoID = basename(parse_url($yt_link, PHP_URL_PATH));
+        }
+
+        if ($videoID) {
+            echo '
+            <div class="col-md-4 mb-4">  <!-- Use col-md-4 for 3 videos per row on PC -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' . htmlspecialchars($videoID) . '" allowfullscreen></iframe>
+                </div>
+            </div>';
+        }
+    }
+
+    echo '
+        </div> <!-- End of row -->
+    </div> <!-- End of container -->
+    ';
+} else {
+    echo '<p class="text-center">No videos available right now ;( .</p>';
+}
+
+?>
   <footer class="site-footer">
     <div class="footer-content">
 
