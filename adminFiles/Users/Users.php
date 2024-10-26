@@ -193,6 +193,9 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
                                 <td>" . htmlspecialchars($row['email']) . "</td>
                                 <td>" . $row['created_at'] . "</td>
                                 <td>" . $row['updated_at'] . "</td>
+                                 <td>
+                    <a href='./Delete-Users.php?id=" . urlencode($row['id']) . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this user?')\">Delete</a>
+                </td>
                               </tr>";
                     }
                 } else {
