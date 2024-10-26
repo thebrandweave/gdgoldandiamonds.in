@@ -16,12 +16,14 @@ include("./adminFiles/config.php");
   <link rel="stylesheet" href="./css/testimonials.css" />
 
   <link rel="stylesheet" href="./css/responsive/phone.css">
+  <link rel="stylesheet" href="./css/popup.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- font awesome  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <!-- aos animation  -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 
 </head>
 
@@ -53,6 +55,43 @@ include("./adminFiles/config.php");
   </header>
   <!-- --------------- ----nav bar end ------------------ -->
 
+  <!-- ------------------popup ads start------------ -->
+  <!-- <div class="popupAd" id="offerModal">
+  <div class="custom-modal">
+    <a  onclick="closePopup()" class="close-btn">&times;</a>
+    <img src="images/bangle.png" alt="Promotional Offer" class="promo-image">
+    <p>Use code SUMMER50 at checkout. Hurry, offer ends soon!</p>
+    <a href="#" class="btn btn-shop">Shop Now</a>
+  </div>
+</div> -->
+
+
+<?php
+$pop_sql = "SELECT * FROM popups ORDER BY created_at DESC LIMIT 1";
+$pop_result = $conn->query($pop_sql);
+$popup_visiblity="none";
+
+if ($pop_result->num_rows > 0) {
+    $ad = $pop_result->fetch_assoc();
+    $popup_visiblity="flex";
+
+    ?>
+
+    <div style="display: <?php echo $popup_visiblity?>;" class="popupAd" id="offerModal">
+        <div class="custom-modal">
+            <a onclick="closePopup()" class="close-btn">&times;</a>
+            <img src="<?php echo htmlspecialchars($ad['popup_image_url']); ?>" alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
+            <p><?php echo htmlspecialchars($ad['title']); ?></p>
+            <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
+        </div>
+    </div>
+
+    <?php
+} else {
+    $popup_visiblity="none";
+}
+
+?>
   <!-- Carousel Slider -->
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -426,15 +465,15 @@ include("./adminFiles/config.php");
 
     <?php
 
-    $sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3";
-    $result = $conn->query($sql);
+    $yt_sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3";
+    $yt_result = $conn->query($yt_sql);
 
-    if ($result->num_rows > 0) {
+    if ($yt_result->num_rows > 0) {
       echo '
     <div class="container mt-2">
         <div class="row justify-content-center">';
 
-      while ($yt_row = $result->fetch_assoc()) {
+      while ($yt_row = $yt_result->fetch_assoc()) {
         $yt_link = $yt_row["yt_link"];
         $videoID = null;
 
@@ -557,22 +596,12 @@ if (showValue !== null ) {
       AOS.init();
     </script>
 
-    <script>
-      function showVideo() {
-        const iframe = document.getElementById("youtubeIframe");
-        iframe.src = "https://www.youtube.com/embed/4smhzjT3d1w?autoplay=1";
-        document.getElementById("videoPopup").style.display = "flex";
-      }
+<script>
 
-      function hideVideo() {
-        const videoPopup = document.getElementById("videoPopup");
-        const iframe = document.getElementById("youtubeIframe");
-
-        // Hide the popup and stop the video by clearing the src
-        videoPopup.style.display = "none";
-        iframe.src = "";
-      }
-    </script>
+  function closePopup(){
+    document.getElementById('offerModal').style.display="none"
+  }
+</script>
 </body>
 
 </html>
