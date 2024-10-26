@@ -14,10 +14,11 @@ include("./adminFiles/config.php");
   <link rel="stylesheet" href="./css/footer.css" />
   <link rel="stylesheet" href="./css/testimonials.css" />
   <link rel="stylesheet" href="./css//responsive/phone.css">
+  <link rel="stylesheet" href="./adminFiles/style.css">k
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- font awesome  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <!-- aos animation  -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
@@ -44,80 +45,74 @@ include("./adminFiles/config.php");
     <img src="./images/gdlogo.png" href="#" class="logo" />
     <div class="menu">
       <a href="./">HOME</a>
-      <a href="./about.php" >ABOUT</a>
+      <a href="./about.php">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
-      <a  href="./plans.php">PLANS</a>
-      <a class="https://goldendream.in/login">Login</a>
+      <a class="active">PLANS</a>
+      <a href="https://goldendream.in/login" >Login</a>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>
     <div class="menu-shadow" onclick="closeMenu()"></div>
     <i class="fa fa-bars show-bar" onclick="openMenu()"></i>
   </header>
   <!-- --------------- ----nav bar end ------------------ -->
-  <div style="height:90px;width:100vw;background:#fff;"></div>
+  <div style="height:80px;width:100vw;background:#000;"></div>
   <!-- ------------------------Collections Start-------------------------------- -->
 
+<style>
+  .link-tree-container{
+    min-height: 50vh;
+  }
+  body{
+    background: black;
+  }
+  .bg-golden{
+    width: 200px;
+    text-align: left;
+  }
+</style>
 
+  <div class="link-tree-container text-center">
+    <h4>Follow Us</h4>
+    <div class="link-tree-list">
+        <?php
+        // Database connection
 
+        // Fetch social media links sorted by sort_order
+        $sql = "SELECT platform_name, link_url FROM social_media_links ORDER BY sort_order";
+        $result = $conn->query($sql);
 
-  <!-- ------------------------contact Start-------------------------------- -->
-  <div class="text-center mb-4 ">
-    <h2 data-aos-delay="100" data-aos="fade-up" class="">- Contact us -</h2>
-    <div data-aos-delay="100" data-aos="fade-up" style="margin-top:10px;" class="UnderLine text-center">
-      <p></p>
+        // Define icons for each platform
+        $icons = [
+            'facebook' => 'fab fa-facebook',
+            'instagram' => 'fab fa-instagram',
+            'youtube' => 'fab fa-youtube',
+            'whatsapp' => 'fab fa-whatsapp'
+        ];
+
+        if ($result->num_rows > 0) {
+            // Output data for each row
+            while($row = $result->fetch_assoc()) {
+                $platform = strtolower($row["platform_name"]);
+                $iconClass = isset($icons[$platform]) ? $icons[$platform] : 'fas fa-link'; // default icon
+                echo '<div class="link-tree-item ">';
+                echo '<a href="' . $row["link_url"] . '" target="_blank" class="btn bg-golden btn-block">';
+                echo '<i class="' . $iconClass . '"></i> &nbsp; &nbsp;&nbsp;&nbsp;' . ucfirst($platform);
+                echo '</a>';
+                echo '</div>';
+                
+            }
+        } else {
+            echo "<p>No social media links found.</p>";
+        }
+
+        $conn->close();
+        ?>
     </div>
-  </div>
-  <div class="container5" style="margin-top: -100px;">
+</div>
 
-    <div data-aos-delay="100" data-aos="fade-up" class="cont5top">
-      <h4>Need Help?</h4>
-      <p>+91 8867575821 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;+91 8867575821</p>
-    </div>
-    <!-- <div style="background: white; width: 100%; height: 20px"></div> -->
-    <div data-aos-delay="100" data-aos="fade-up" class="container my-5">
-      <div class="row">
-        <!-- Info Section -->
-        <div class="col-lg-6">
-          <div class="info-section contactSectionHeight">
-            <h2 class="mb-4 golden_Text">Let's get in touch</h2>
-            <p class="text-justify">Whether you have a question, need support, or just want to collaborate, we’re here to help. Feel free to reach out to us through the contact details provided or by filling out the form. We look forward to hearing from you!</p>
-            <p>#2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p>lorem@ipsum.com</p>
-            <p>123-456-789</p>
-            <h5>Connect with us:</h5>
-            <div class="mt-2 socialBtns" title="Social Accounts">
-              <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-              <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-              <span class="social-icon"><i class="fa fa-twitter"></i> </span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Contact Form Section -->
-        <div class="col-lg-6">
-          <div class="contact-section contactSectionHeight">
-            <h2 class="text-white mb-4">Contact us</h2>
-            <form method="POST" action="./sendMail.php">
-              <div class="mb-3">
-                <input type="text" class="form-control" name="full_name" placeholder="Full Name" required />
-              </div>
-              <div class="mb-3">
-                <input type="email" class="form-control" name="email" placeholder="Email" required />
-              </div>
-              <div class="mb-3">
-                <input type="tel" class="form-control" name="phone" placeholder="Phone" required />
-              </div>
-              <div class="mb-3">
-                <textarea class="form-control" name="message" rows="4" placeholder="Message" style="resize: none" required></textarea>
-              </div>
-              <button type="submit" class="btn w-100 contactBtn">Send Message</button>
-            </form>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- footer start  -->
   <footer class="site-footer">
     <div class="footer-content">
 
@@ -153,9 +148,9 @@ include("./adminFiles/config.php");
         <div style="width: 100%;text-align: center;">
 
           <div class="mt-2 socialBtns" title="Social Accounts">
-            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+            <span class="social-icon"><i class="fab fa-facebook"></i> </span>
+            <span class="social-icon"><i class="fab fa-instagram"></i> </span>
+            <span class="social-icon"><i class="fab fa-twitter"></i> </span>
           </div>
         </div>
       </nav>
@@ -170,6 +165,9 @@ include("./adminFiles/config.php");
   <script src="./js/navBar.js"></script>  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
     // Manually initialize the carousel with auto-slide and set interval of 5000ms

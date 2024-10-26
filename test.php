@@ -1,51 +1,77 @@
-<!doctype html>
+<?php
+include("./adminFiles/config.php");
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FAQ Section</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container my-5">
-      <h2 class="text-center mb-4">Frequently Asked Questions</h2>
-      <div class="accordion" id="faqAccordion">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Link Tree</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .link-tree-container {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .link-tree-item {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="link-tree-container text-center">
+    <h4>Follow Us</h4>
+    <div class="link-tree-list">
         <?php
-include('./adminFiles/config.php');
+        // Database connection
 
-          // Query to fetch FAQs ordered by sort_order
-          $faq_sql = "SELECT * FROM faqs ORDER BY sort_order ASC";
-          $faq_result = $conn->query($faq_sql);
-  
-          if ($faq_result->num_rows > 0) {
-              $count = 0;
-              while ($faq = $faq_result->fetch_assoc()) {
-                  $count++;
-                  ?>
-                  <!-- FAQ Item -->
-                  <div class="accordion-item">
-                      <h2 class="accordion-header" id="faqHeading-<?php echo $count; ?>">
-                          <button class="accordion-button <?php echo $count !== 1 ? 'collapsed' : ''; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse-<?php echo $count; ?>" aria-expanded="<?php echo $count === 1 ? 'true' : 'false'; ?>" aria-controls="faqCollapse-<?php echo $count; ?>">
-                              <?php echo htmlspecialchars($faq['question']); ?>
-                          </button>
-                      </h2>
-                      <div id="faqCollapse-<?php echo $count; ?>" class="accordion-collapse collapse <?php echo $count === 1 ? 'show' : ''; ?>" aria-labelledby="faqHeading-<?php echo $count; ?>" data-bs-parent="#faqAccordion">
-                          <div class="accordion-body">
-                              <?php echo htmlspecialchars($faq['answer']); ?>
-                          </div>
-                      </div>
-                  </div>
-                  <?php
-              }
-          } else {
-              echo "<p>No FAQs available at the moment.</p>";
-          }
+        // Fetch social media links sorted by sort_order
+        $sql = "SELECT platform_name, link_url FROM social_media_links ORDER BY sort_order";
+        $result = $conn->query($sql);
 
-          $conn->close();
+        // Define icons for each platform
+        $icons = [
+            'facebook' => 'fab fa-facebook',
+            'instagram' => 'fab fa-instagram',
+            'youtube' => 'fab fa-youtube',
+            'whatsapp' => 'fab fa-whatsapp'
+        ];
+
+        if ($result->num_rows > 0) {
+            // Output data for each row
+            while($row = $result->fetch_assoc()) {
+                $platform = strtolower($row["platform_name"]);
+                $iconClass = isset($icons[$platform]) ? $icons[$platform] : 'fas fa-link'; // default icon
+                echo '<div class="link-tree-item">';
+                echo '<a href="' . $row["link_url"] . '" target="_blank" class="btn btn-primary btn-block">';
+                echo '<i class="' . $iconClass . '"></i> ' . ucfirst($platform);
+                echo '</a>';
+                echo '</div>';
+            }
+        } else {
+            echo "<p>No social media links found.</p>";
+        }
+
+        $conn->close();
         ?>
-      </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
 </html>

@@ -46,7 +46,7 @@ include("./adminFiles/config.php");
       <a href="./about.php" onclick="closeMenu()">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
       <a href="./plans.php" onclick="closeMenu()">PLANS</a>
-      <span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd">LOGIN</a>
+      <span> <a href="https://goldendream.in/login">LOGIN</a>
       </span>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>
@@ -360,10 +360,10 @@ include("./adminFiles/config.php");
             <h2 class="mb-4 golden_Text">Let's get in touch</h2>
             <p class="text-justify">Whether you have a question, need support, or just want to collaborate, we’re here to help. Feel free to reach out to us through the contact details provided or by filling out the form. We look forward to hearing from you!</p>
             <p>#2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p>goldendream6364@gmail.com</p>
+            <p>Goldendream035@gmail.com</p>
             <p>+91 73497 39580</p>
             <h5>Connect with us:</h5>
-            <div class="mt-2">
+            <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
               <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
               <span class="social-icon"><i class="fa fa-instagram"></i> </span>
               <span class="social-icon"><i class="fa fa-twitter"></i> </span>
@@ -586,7 +586,7 @@ include("./adminFiles/config.php");
         </ul>
         <div style="width: 100%;text-align: center;">
 
-          <div class="mt-2">
+          <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
             <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
             <span class="social-icon"><i class="fa fa-instagram"></i> </span>
             <span class="social-icon"><i class="fa fa-twitter"></i> </span>

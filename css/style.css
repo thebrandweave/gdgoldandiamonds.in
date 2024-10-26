@@ -358,3 +358,19 @@ video {
 .embed-responsive-item{
   border-radius: 10px;
 }
+
+.link-tree-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #000;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.link-tree-item {
+  margin: 10px 0;
+}
+.socialBtns{
+  cursor: pointer;
+}
