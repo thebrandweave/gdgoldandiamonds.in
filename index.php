@@ -44,7 +44,7 @@ include("./adminFiles/config.php");
       <a href="./about.php" onclick="closeMenu()">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
       <a href="./plans.php" onclick="closeMenu()">PLANS</a>
-      <span> <a  href="https://goldendream.in/referral-user/registration/5fOKJqalEd">LOGIN</a>
+      <span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd">LOGIN</a>
       </span>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>
@@ -97,8 +97,8 @@ include("./adminFiles/config.php");
           </div>
           <div class="homePageText">
             <h2>
-            Smart Investments, <br>
-            Bright Tomorrows
+              Smart Investments, <br>
+              Bright Tomorrows
             </h2>
             <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
@@ -122,8 +122,8 @@ include("./adminFiles/config.php");
           </div>
           <div class="homePageText">
             <h2>
-            Plant Today,<br>
-            Prosper Tomorrow
+              Plant Today,<br>
+              Prosper Tomorrow
             </h2>
             <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
@@ -147,8 +147,8 @@ include("./adminFiles/config.php");
           </div>
           <div class="homePageText">
             <h2>
-            Secure Your Future,<br>
-             One Step at a Time
+              Secure Your Future,<br>
+              One Step at a Time
             </h2>
             <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
@@ -172,8 +172,8 @@ include("./adminFiles/config.php");
           </div>
           <div class="homePageText">
             <h2>
-            Invest Now, <br>
-            Reap for a Lifetime
+              Invest Now, <br>
+              Reap for a Lifetime
             </h2>
             <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
@@ -207,7 +207,7 @@ include("./adminFiles/config.php");
         <p data-aos-delay="100" data-aos="fade-up">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, quo molestias? Reiciendis esse officia cumque aspernatur, temporibus quam modi tenetur quaerat cupiditate dolorem suscipit eos?</p>
       </div>
       <div class="col-md-6 text-center section2">
-        <img data-aos-delay="100" data-aos="fade-up" src="./images/bangle.svg" alt="" />
+        <img data-aos-delay="100" data-aos="fade-up" src="./images/bangle.png" alt="" />
       </div>
     </div>
   </div>
@@ -300,10 +300,10 @@ include("./adminFiles/config.php");
     }
     ?>
 
-    <div class="viewMore text-center"><a data-aos-delay="100" data-aos="fade-up" href="./collections.php" class="btn  bg-golden ">View More Collections</a></div>
+    <div class="viewMore text-center mt-3"><a data-aos-delay="100" data-aos="fade-up" href="./collections.php" class="btn  bg-golden ">View More Collections</a></div>
 
   </div>
-<!-- <br> -->
+  <!-- <br> -->
 
   <!-- ------------------------contact Start-------------------------------- -->
 
@@ -417,117 +417,117 @@ include("./adminFiles/config.php");
   </div>
   <!-- <br /> -->
   <!-- ------------------------Trending End-------------------------------- -->
-<!----------------------------------- Youtube video ---------------------------->
-<div class="div">
-<h1 data-aos-delay="100" data-aos="fade-up">Videos</span></h1>
+  <!----------------------------------- Youtube video ---------------------------->
+  <div class="div">
+    <h1 data-aos-delay="100" data-aos="fade-up">Videos</span></h1>
     <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
       <p></p>
     </div>
 
-<?php
+    <?php
 
-$sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3"; 
-$result = $conn->query($sql);
+    $sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3";
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    echo '
+    if ($result->num_rows > 0) {
+      echo '
     <div class="container mt-2">
-        <div class="row justify-content-center">'; 
+        <div class="row justify-content-center">';
 
-    while ($yt_row = $result->fetch_assoc()) {
+      while ($yt_row = $result->fetch_assoc()) {
         $yt_link = $yt_row["yt_link"];
         $videoID = null;
 
         if (strpos($yt_link, 'youtube.com') !== false) {
-            parse_str(parse_url($yt_link, PHP_URL_QUERY), $params);
-            $videoID = $params['v'] ?? null;
+          parse_str(parse_url($yt_link, PHP_URL_QUERY), $params);
+          $videoID = $params['v'] ?? null;
         } elseif (strpos($yt_link, 'youtu.be') !== false) {
-            $videoID = basename(parse_url($yt_link, PHP_URL_PATH));
+          $videoID = basename(parse_url($yt_link, PHP_URL_PATH));
         }
 
         if ($videoID) {
-            echo '
+          echo '
             <div class="col-md-4 mb-4">  <!-- Use col-md-4 for 3 videos per row on PC -->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' . htmlspecialchars($videoID) . '" allowfullscreen></iframe>
                 </div>
             </div>';
         }
-    }
+      }
 
-    echo '
+      echo '
         </div> <!-- End of row -->
     </div> <!-- End of container -->
     ';
-} else {
-    echo '<p class="text-center">No videos available right now ;( .</p>';
-}
+    } else {
+      echo '<p class="text-center">No videos available right now ;( .</p>';
+    }
 
-?>
-  <footer class="site-footer">
-    <div class="footer-content">
+    ?>
+    <footer class="site-footer">
+      <div class="footer-content">
 
 
-      <div style="width: 150% !important" class="footer-info second-column">
-        <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
-        <div class="row">
-          <div class="col-3">
-            <img height="100" class="footerLogo" src="./images/gdlogo.png" alt="" />
-          </div>
-          <div class="col-8" style="text-align: left;">
-            <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 100% !important" class="footer-info second-column">
-        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-        <a  href="https://intelexsolutions.in" class="logo-column">
-          <img height="85" src="./images/footerCreditsIS.png" alt="" />
-        </a>
-      </div>
-      <nav class="footer-nav third-column ">
-        <ul>
-          <li><a href="./">Home</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./privacy-policy/"> About us</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./contact">Collections</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./privacy-policy/">Plans</a></li>
-        </ul>
-        <div style="width: 100%;text-align: center;">
-
-          <div class="mt-2">
-            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+        <div style="width: 150% !important" class="footer-info second-column">
+          <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
+          <div class="row">
+            <div class="col-3">
+              <img height="100" class="footerLogo" src="./images/gdlogo.png" alt="" />
+            </div>
+            <div class="col-8" style="text-align: left;">
+              <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
+              <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
+            </div>
           </div>
         </div>
-      </nav>
+        <div style="width: 100% !important" class="footer-info second-column">
+          <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
+          <a href="https://intelexsolutions.in" class="logo-column">
+            <img height="85" src="./images/footerCreditsIS.png" alt="" />
+          </a>
+        </div>
+        <nav class="footer-nav third-column ">
+          <ul>
+            <li><a href="./">Home</a></li>
+            |&nbsp;&nbsp;
+            <li><a href="./privacy-policy/"> About us</a></li>
+            |&nbsp;&nbsp;
+            <li><a href="./contact">Collections</a></li>
+            |&nbsp;&nbsp;
+            <li><a href="./privacy-policy/">Plans</a></li>
+          </ul>
+          <div style="width: 100%;text-align: center;">
+
+            <div class="mt-2">
+              <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
+              <span class="social-icon"><i class="fa fa-instagram"></i> </span>
+              <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+    </footer>
+    <div class="phoneFooterCopyright">
+      <p class="">Copyrights &copy; GD Golds and Diamonds</p>
+
     </div>
 
-  </footer>
-  <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
-
-  </div>
 
 
+    <script src="./js/main.js"></script>
+    <script src="./js/navBar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-  <script src="./js/main.js"></script>
-  <script src="./js/navBar.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-  <script>
-    // Manually initialize the carousel with auto-slide and set interval of 5000ms
-    var myCarousel = document.querySelector("#carouselExample");
-    var carousel = new bootstrap.Carousel(myCarousel, {
-      interval: 5000, // 5 seconds
-      ride: "carousel", // Auto-start the carousel
-    });
-  </script>
-  <!-- <script>
+    <script>
+      // Manually initialize the carousel with auto-slide and set interval of 5000ms
+      var myCarousel = document.querySelector("#carouselExample");
+      var carousel = new bootstrap.Carousel(myCarousel, {
+        interval: 5000, // 5 seconds
+        ride: "carousel", // Auto-start the carousel
+      });
+    </script>
+    <!-- <script>
     const params = new URLSearchParams(window.location.search);
 
     const showValue = params.get('show');
@@ -551,28 +551,28 @@ if (showValue !== null ) {
 >>>>>>> refs/remotes/origin/main
 =======
   </script> -->
-  <!-- aos animation script  -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <!-- aos animation script  -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
- <script>
-  function showVideo() {
-    const iframe = document.getElementById("youtubeIframe");
-    iframe.src = "https://www.youtube.com/embed/4smhzjT3d1w?autoplay=1";
-    document.getElementById("videoPopup").style.display = "flex";
-  }
+    <script>
+      function showVideo() {
+        const iframe = document.getElementById("youtubeIframe");
+        iframe.src = "https://www.youtube.com/embed/4smhzjT3d1w?autoplay=1";
+        document.getElementById("videoPopup").style.display = "flex";
+      }
 
-  function hideVideo() {
-    const videoPopup = document.getElementById("videoPopup");
-    const iframe = document.getElementById("youtubeIframe");
+      function hideVideo() {
+        const videoPopup = document.getElementById("videoPopup");
+        const iframe = document.getElementById("youtubeIframe");
 
-    // Hide the popup and stop the video by clearing the src
-    videoPopup.style.display = "none";
-    iframe.src = "";
-  }
- </script>
+        // Hide the popup and stop the video by clearing the src
+        videoPopup.style.display = "none";
+        iframe.src = "";
+      }
+    </script>
 </body>
 
 </html>
