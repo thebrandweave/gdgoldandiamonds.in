@@ -1,18 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popup Modal with Image</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      
-    </style>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<div class="container my-5">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <!-- FAQ Item 1 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading-1">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#faqCollapse-1" aria-expanded="true" aria-controls="faqCollapse-1">
+                        What is your return policy?
+                    </button>
+                </h5>
+            </div>
+            <div id="faqCollapse-1" class="collapse show" aria-labelledby="faqHeading-1" data-parent="#faqAccordion">
+                <div class="card-body">
+                    We offer a 30-day return policy for all purchases. Please make sure the items are in their original condition.
+                </div>
+            </div>
+        </div>
 
-  </body>
+        <!-- FAQ Item 2 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading-2">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse-2" aria-expanded="false" aria-controls="faqCollapse-2">
+                        How long does shipping take?
+                    </button>
+                </h5>
+            </div>
+            <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Shipping usually takes between 3-7 business days, depending on your location.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading-3">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse-3" aria-expanded="false" aria-controls="faqCollapse-3">
+                        Do you offer international shipping?
+                    </button>
+                </h5>
+            </div>
+            <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#faqAccordion">
+                <div class="card-body">
+                    Yes, we offer international shipping to many countries. Please check our shipping information page for details.
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="card">
+            <div class="card-header" id="faqHeading-4">
+                <h5 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#faqCollapse-4" aria-expanded="false" aria-controls="faqCollapse-4">
+                        How can I contact customer support?
+                    </button>
+                </h5>
+            </div>
+            <div id="faqCollapse-4" class="collapse" aria-labelledby="faqHeading-4" data-parent="#faqAccordion">
+                <div class="card-body">
+                    You can reach our customer support team through our contact page or by calling our support hotline at any time.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
 </html>

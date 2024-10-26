@@ -66,32 +66,32 @@ include("./adminFiles/config.php");
 </div> -->
 
 
-<?php
-$pop_sql = "SELECT * FROM popups ORDER BY created_at DESC LIMIT 1";
-$pop_result = $conn->query($pop_sql);
-$popup_visiblity="none";
+  <?php
+  $pop_sql = "SELECT * FROM popups ORDER BY created_at DESC LIMIT 1";
+  $pop_result = $conn->query($pop_sql);
+  $popup_visiblity = "none";
 
-if ($pop_result->num_rows > 0) {
+  if ($pop_result->num_rows > 0) {
     $ad = $pop_result->fetch_assoc();
-    $popup_visiblity="flex";
+    $popup_visiblity = "flex";
 
-    ?>
+  ?>
 
-    <div style="display: <?php echo $popup_visiblity?>;" class="popupAd" id="offerModal">
-        <div class="custom-modal">
-            <a onclick="closePopup()" class="close-btn">&times;</a>
-            <img src="<?php echo htmlspecialchars($ad['popup_image_url']); ?>" alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
-            <p><?php echo htmlspecialchars($ad['title']); ?></p>
-            <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
-        </div>
+    <div style="display: <?php echo $popup_visiblity ?>;" class="popupAd" id="offerModal">
+      <div class="custom-modal">
+        <a onclick="closePopup()" class="close-btn">&times;</a>
+        <img src="<?php echo htmlspecialchars($ad['popup_image_url']); ?>" alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
+        <p><?php echo htmlspecialchars($ad['title']); ?></p>
+        <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
+      </div>
     </div>
 
-    <?php
-} else {
-    $popup_visiblity="none";
-}
+  <?php
+  } else {
+    $popup_visiblity = "none";
+  }
 
-?>
+  ?>
   <!-- Carousel Slider -->
   <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -457,116 +457,165 @@ if ($pop_result->num_rows > 0) {
   <!-- <br /> -->
   <!-- ------------------------Trending End-------------------------------- -->
   <!----------------------------------- Youtube video ---------------------------->
-  <div class="div">
-    <h1 data-aos-delay="100" data-aos="fade-up">Videos</span></h1>
-    <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
-      <p></p>
-    </div>
+  <h1 data-aos-delay="100" data-aos="fade-up">Videos</span></h1>
+  <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
+    <p></p>
+  </div>
 
-    <?php
+  <?php
 
-    $yt_sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3";
-    $yt_result = $conn->query($yt_sql);
+  $yt_sql = "SELECT yt_link FROM youtube_links ORDER BY created_at DESC LIMIT 3";
+  $yt_result = $conn->query($yt_sql);
 
-    if ($yt_result->num_rows > 0) {
-      echo '
+  if ($yt_result->num_rows > 0) {
+    echo '
     <div class="container mt-2">
         <div class="row justify-content-center">';
 
-      while ($yt_row = $yt_result->fetch_assoc()) {
-        $yt_link = $yt_row["yt_link"];
-        $videoID = null;
+    while ($yt_row = $yt_result->fetch_assoc()) {
+      $yt_link = $yt_row["yt_link"];
+      $videoID = null;
 
-        if (strpos($yt_link, 'youtube.com') !== false) {
-          parse_str(parse_url($yt_link, PHP_URL_QUERY), $params);
-          $videoID = $params['v'] ?? null;
-        } elseif (strpos($yt_link, 'youtu.be') !== false) {
-          $videoID = basename(parse_url($yt_link, PHP_URL_PATH));
-        }
+      if (strpos($yt_link, 'youtube.com') !== false) {
+        parse_str(parse_url($yt_link, PHP_URL_QUERY), $params);
+        $videoID = $params['v'] ?? null;
+      } elseif (strpos($yt_link, 'youtu.be') !== false) {
+        $videoID = basename(parse_url($yt_link, PHP_URL_PATH));
+      }
 
-        if ($videoID) {
-          echo '
+      if ($videoID) {
+        echo '
             <div class="col-md-4 mb-4">  <!-- Use col-md-4 for 3 videos per row on PC -->
                 <div class="embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' . htmlspecialchars($videoID) . '" allowfullscreen></iframe>
                 </div>
             </div>';
-        }
       }
+    }
 
-      echo '
+    echo '
         </div> <!-- End of row -->
     </div> <!-- End of container -->
     ';
-    } else {
-      echo '<p class="text-center">No videos available right now ;( .</p>';
-    }
+  } else {
+    echo '<p class="text-center">No videos available right now ;( .</p>';
+  }
 
-    ?>
-    <footer class="site-footer">
-      <div class="footer-content">
+  ?>
 
 
-        <div style="width: 150% !important" class="footer-info second-column">
-          <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
-          <div class="row">
-            <div class="col-3">
-              <img height="100" class="footerLogo" src="./images/gdlogo.png" alt="" />
-            </div>
-            <div class="col-8" style="text-align: left;">
-              <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-              <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-            </div>
-          </div>
-        </div>
-        <div style="width: 100% !important" class="footer-info second-column">
-          <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-          <a href="https://intelexsolutions.in" class="logo-column">
-            <img height="85" src="./images/footerCreditsIS.png" alt="" />
-          </a>
-        </div>
-        <nav class="footer-nav third-column ">
-          <ul>
-            <li><a href="./">Home</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/"> About us</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./contact">Collections</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/">Plans</a></li>
-          </ul>
-          <div style="width: 100%;text-align: center;">
+  <!------------------ faqs start ----------------- -->
+  <h1 data-aos-delay="100" data-aos="fade-up">FAQs</span></h1>
+  <div data-aos-delay="100" data-aos="fade-up" style="margin: 0px" class="UnderLine text-center">
+    <p></p>
+  </div>
+  <div class="container ">
+    <div class="accordion" id="faqAccordion">
+      <?php
+      include('./adminFiles/config.php');
 
-            <div class="mt-2">
-              <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-              <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-              <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+      // Query to fetch FAQs ordered by sort_order
+      $faq_sql = "SELECT * FROM faqs ORDER BY sort_order ASC";
+      $faq_result = $conn->query($faq_sql);
+
+      if ($faq_result->num_rows > 0) {
+        $count = 0;
+        while ($faq = $faq_result->fetch_assoc()) {
+          $count++;
+      ?>
+          <!-- FAQ Item -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeading-<?php echo $count; ?>">
+              <button class="accordion-button <?php echo $count !== 1 ? 'collapsed' : ''; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse-<?php echo $count; ?>" aria-expanded="<?php echo $count === 1 ? 'true' : 'false'; ?>" aria-controls="faqCollapse-<?php echo $count; ?>">
+                <?php echo htmlspecialchars($faq['question']); ?>
+              </button>
+            </h2>
+            <div id="faqCollapse-<?php echo $count; ?>" class="accordion-collapse collapse <?php echo $count === 1 ? 'show' : ''; ?>" aria-labelledby="faqHeading-<?php echo $count; ?>" data-bs-parent="#faqAccordion">
+              <div class="accordion-body" style="text-align: justify;">
+                <?php echo htmlspecialchars($faq['answer']); ?>
+              </div>
             </div>
           </div>
-        </nav>
+      <?php
+        }
+      } else {
+        echo "<p>No FAQs available at the moment.</p>";
+      }
+
+      $conn->close();
+      ?>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- ----------------foooter start ----------------  -->
+  <footer class="site-footer">
+    <div class="footer-content">
+
+
+      <div style="width: 150% !important" class="footer-info second-column">
+        <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
+        <div class="row">
+          <div class="col-3">
+            <img height="100" class="footerLogo" src="./images/gdlogo.png" alt="" />
+          </div>
+          <div class="col-8" style="text-align: left;">
+            <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
+            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
+          </div>
+        </div>
       </div>
+      <div style="width: 100% !important" class="footer-info second-column">
+        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
+        <a href="https://intelexsolutions.in" class="logo-column">
+          <img height="85" src="./images/footerCreditsIS.png" alt="" />
+        </a>
+      </div>
+      <nav class="footer-nav third-column ">
+        <ul>
+          <li><a href="./">Home</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./privacy-policy/"> About us</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./contact">Collections</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./privacy-policy/">Plans</a></li>
+        </ul>
+        <div style="width: 100%;text-align: center;">
 
-    </footer>
-    <div class="phoneFooterCopyright">
-      <p class="">Copyrights &copy; GD Golds and Diamonds</p>
-
+          <div class="mt-2">
+            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
+            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
+            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+          </div>
+        </div>
+      </nav>
     </div>
 
+  </footer>
+  <div class="phoneFooterCopyright">
+    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
+
+  </div>
 
 
-    <script src="./js/main.js"></script>
-    <script src="./js/navBar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script>
-      // Manually initialize the carousel with auto-slide and set interval of 5000ms
-      var myCarousel = document.querySelector("#carouselExample");
-      var carousel = new bootstrap.Carousel(myCarousel, {
-        interval: 5000, // 5 seconds
-        ride: "carousel", // Auto-start the carousel
-      });
-    </script>
-    <!-- <script>
+  <script src="./js/main.js"></script>
+  <script src="./js/navBar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+    // Manually initialize the carousel with auto-slide and set interval of 5000ms
+    var myCarousel = document.querySelector("#carouselExample");
+    var carousel = new bootstrap.Carousel(myCarousel, {
+      interval: 5000, // 5 seconds
+      ride: "carousel", // Auto-start the carousel
+    });
+  </script>
+  <!-- <script>
     const params = new URLSearchParams(window.location.search);
 
     const showValue = params.get('show');
@@ -590,18 +639,17 @@ if (showValue !== null ) {
 >>>>>>> refs/remotes/origin/main
 =======
   </script> -->
-    <!-- aos animation script  -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
+  <!-- aos animation script  -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
-<script>
-
-  function closePopup(){
-    document.getElementById('offerModal').style.display="none"
-  }
-</script>
+  <script>
+    function closePopup() {
+      document.getElementById('offerModal').style.display = "none"
+    }
+  </script>
 </body>
 
 </html>
