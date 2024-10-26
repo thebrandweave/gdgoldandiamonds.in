@@ -130,7 +130,7 @@ $col_id = intval($_GET['col_id']);
                     <?php } ?>
 
                     <!-- Buy Now Button (smaller) -->
-                    <a href="https://wa.me/+916361557581?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20item%20*<?php echo urlencode(htmlspecialchars($row['item_name'])); ?>*%20this%20item.%0A%0A<?php echo urlencode('https://gdgoldanddiamonds.in/img.php?item_id=' . $row['item_id']); ?>" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
+                    <a href="https://wa.me/+919148519580?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20item%20*<?php echo urlencode(htmlspecialchars($row['item_name'])); ?>*%20this%20item.%0A%0A<?php echo urlencode('https://gdgoldanddiamonds.in/img.php?item_id=' . $row['item_id']); ?>" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
                       <i class="bi bi-whatsapp"></i> &nbsp; Buy Now
                     </a>
                   </div>
