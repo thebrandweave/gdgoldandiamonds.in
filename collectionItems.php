@@ -76,14 +76,14 @@ $col_id = intval($_GET['col_id']);
     ?>
     <br>
     <div class="container mt-5">
-      <div class="text-center mb-4 ">
+      <div class="text-center mb-4">
         <h2 data-aos-delay="100" data-aos="fade-up" class="text-light">- Collection Items -</h2>
         <div data-aos-delay="100" data-aos="fade-up" style="margin-top:10px;" class="UnderLine text-center">
           <p></p>
         </div>
       </div>
 
-      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         <?php
         if ($ci_result->num_rows > 0) {
           // Output data for each row
@@ -130,10 +130,9 @@ $col_id = intval($_GET['col_id']);
                     <?php } ?>
 
                     <!-- Buy Now Button (smaller) -->
-                    <a href="https://wa.me/+916361557581?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20item %20*<?php echo urlencode(htmlspecialchars($row['item_name'])); ?>*%20this Item.%0A%0A<?php echo urlencode('https://gdgoldanddiamonds.in/img.php?item_id=' . $row['item_id']); ?>" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
+                    <a href="https://wa.me/+916361557581?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20item%20*<?php echo urlencode(htmlspecialchars($row['item_name'])); ?>*%20this%20item.%0A%0A<?php echo urlencode('https://gdgoldanddiamonds.in/img.php?item_id=' . $row['item_id']); ?>" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
                       <i class="bi bi-whatsapp"></i> &nbsp; Buy Now
                     </a>
-
                   </div>
                 </div>
               </div>
@@ -145,7 +144,6 @@ $col_id = intval($_GET['col_id']);
         }
         ?>
       </div>
-
     </div>
 
     <?php
