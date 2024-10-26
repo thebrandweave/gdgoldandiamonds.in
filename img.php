@@ -22,10 +22,10 @@ if ($item_result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="<?php echo $favicon_url?>" />
+
     <title><?php echo $title; ?></title>
-    <?php if ($favicon_url): ?>
-        <link rel="icon" type="image/png" href="<?php echo $favicon_url; ?>">
-    <?php endif; ?>
+
 </head>
 <body>
 </body>
