@@ -77,7 +77,7 @@ $col_id = intval($_GET['col_id']);
     <br>
     <div class="container mt-5">
       <div class="text-center mb-4 ">
-        <h2 data-aos-delay="100" data-aos="fade-up" class="text-light">-  Collection Items -</h2>
+        <h2 data-aos-delay="100" data-aos="fade-up" class="text-light">- Collection Items -</h2>
         <div data-aos-delay="100" data-aos="fade-up" style="margin-top:10px;" class="UnderLine text-center">
           <p></p>
         </div>
@@ -130,9 +130,10 @@ $col_id = intval($_GET['col_id']);
                     <?php } ?>
 
                     <!-- Buy Now Button (smaller) -->
-                    <a href="https://wa.me/+916361557581?text=Hey,%20i%20wanted%20to%20know%20more%20about%20this%20design" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
-                      <i class="bi bi-whatsapp"></i> &nbsp; Buy now
+                    <a href="https://wa.me/+916361557581?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20<?php echo urlencode(htmlspecialchars($row['item_name'])); ?>%20this Item.%0A<?php echo urlencode('https://yourwebsite.com/item_details.php?item_id=' . $row['item_id']); ?>" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
+                      <i class="bi bi-whatsapp"></i> &nbsp; Buy Now
                     </a>
+
                   </div>
                 </div>
               </div>
@@ -160,56 +161,56 @@ $col_id = intval($_GET['col_id']);
   <!-- <div style="height: 100px;width:100px;"></div> -->
 
 
-    <footer class="site-footer">
-      <div class="footer-content">
+  <footer class="site-footer">
+    <div class="footer-content">
 
 
-        <div style="width: 150% !important" class="footer-info second-column">
-          <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
-          <div class="row">
-            <div class="col-3">
-              <img height="100" src="./images/gdlogo.png" alt="" />
-            </div>
-            <div class="col-8" style="text-align: left;">
-              <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-              <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-            </div>
+      <div style="width: 150% !important" class="footer-info second-column">
+        <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
+        <div class="row">
+          <div class="col-3">
+            <img height="100" src="./images/gdlogo.png" alt="" />
+          </div>
+          <div class="col-8" style="text-align: left;">
+            <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
+            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
           </div>
         </div>
-        <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
+      </div>
+      <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
         <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-          <a href="https://intelexsolutions.in" class="logo-column">
+        <a href="https://intelexsolutions.in" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
-        </div>
-        <nav class="footer-nav third-column ">
-          <ul>
-            <li><a href="./">Home</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/"> About us</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./contact">Collections</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/">Plans</a></li>
-          </ul>
-          <div style="width: 100%;text-align: center;">
-
-            <div class="mt-2">
-              <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-              <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-              <span class="social-icon"><i class="fa fa-twitter"></i> </span>
-            </div>
-          </div>
-        </nav>
       </div>
-    </footer>
-    <div class="phoneFooterCopyright">
+      <nav class="footer-nav third-column ">
+        <ul>
+          <li><a href="./">Home</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./privacy-policy/"> About us</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./contact">Collections</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./privacy-policy/">Plans</a></li>
+        </ul>
+        <div style="width: 100%;text-align: center;">
+
+          <div class="mt-2">
+            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
+            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
+            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>
+  <div class="phoneFooterCopyright">
     <p class="">Copyrights &copy; GD Golds and Diamonds</p>
 
   </div>
 
   <script src="./js/main.js"></script>
-  <script src="./js/navBar.js"></script>  
+  <script src="./js/navBar.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
