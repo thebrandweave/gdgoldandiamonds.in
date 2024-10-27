@@ -3,7 +3,7 @@ include("./adminFiles/config.php");
 $item_id = intval($_GET['item_id']);
 
 // Fetch the item details for the specific item_id
-$item_sql = "SELECT item_name, item_image_url, item_description, original_price, selling_price FROM collection_items WHERE item_id = $item_id LIMIT 1";
+$item_sql = "SELECT * FROM collection_items WHERE item_id = $item_id LIMIT 1";
 $item_result = $conn->query($item_sql);
 
 // Initialize variables for title, favicon URL, and item details
@@ -103,7 +103,7 @@ object-fit: cover;
                                     <del>₹<?= $item['original_price']; ?></del> &nbsp; <span class="text-dark">₹<?= $item['selling_price']; ?></span>
                                 </p>
                                 <p class="text-danger mb-0" style="font-size: 0.7rem; font-weight: bold;"><?= $discount; ?>% off</p>
-                                <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique ut nam consequatur facilis quis, accusamus omnis suscipit eligendi quas! Non odio aut iure hic facilis magnam. Quibusdam temporibus vitae suscipit.</p>
+                                <p style="text-align: justify;"><?= $item['description']; ?></p>
                                 <a href="https://wa.me/+916361557581?text=Hello,%20I%20would%20like%20to%20learn%20more%20about%20the%20item%20*<?= urlencode($item['name']); ?>*" class="btn btn-success rounded-pill px-2" style="font-size: 0.7rem; padding: 5px 10px;">
                                     <i class="bi bi-whatsapp"></i> &nbsp; Buy Now
                                 </a>
