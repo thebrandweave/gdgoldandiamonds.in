@@ -53,7 +53,7 @@ CREATE TABLE social_media_links (
 -- Table to store pop-up details
 CREATE TABLE popups (
     popup_id INT AUTO_INCREMENT PRIMARY KEY,
-    popup_image VARCHAR(255) NOT NULL,
+    popup_image_url VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     link_url VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP

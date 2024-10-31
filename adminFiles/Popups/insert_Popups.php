@@ -16,22 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $linkUrl = $_POST['link_url'];
 
     // Check if file was uploaded
-    if (isset($_FILES["popup_image"]) && $_FILES["popup_image"]["error"] == 0) {
+    if (isset($_FILES["popup_image_url"]) && $_FILES["popup_image_url"]["error"] == 0) {
         // Handle the file upload
         $targetDir = "../uploadedFiles/Popups/";
-        $targetFile = $targetDir . basename($_FILES["popup_image"]["name"]);
+        $targetFile = $targetDir . basename($_FILES["popup_image_url"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Check if image file is a real image
-        $check = getimagesize($_FILES["popup_image"]["tmp_name"]);
+        $check = getimagesize($_FILES["popup_image_url"]["tmp_name"]);
         if ($check === false) {
             echo "File is not an image.";
             $uploadOk = 0;
         }
 
         // Check file size (optional, set to 5MB in this example)
-        if ($_FILES["popup_image"]["size"] > 5000000) {
+        if ($_FILES["popup_image_url"]["size"] > 5000000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
@@ -47,9 +47,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Sorry, your file was not uploaded.";
         } else {
             // Try to upload file
-            if (move_uploaded_file($_FILES["popup_image"]["tmp_name"], $targetFile)) {
+            if (move_uploaded_file($_FILES["popup_image_url"]["tmp_name"], $targetFile)) {
                 // Insert into database
-                $sql = "INSERT INTO popups (popup_image, title, link_url) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO popups (popup_image_url, title, link_url) VALUES (?, ?, ?)";
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param("sss", $targetFile, $title, $linkUrl); // sss: string, string, string
 
