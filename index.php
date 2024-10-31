@@ -8,6 +8,17 @@ include("./adminFiles/config.php");
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!--   seo optimization -->
+<!-- Homepage Meta Description -->
+<meta name="description" content="GD Gold and Diamonds in Mudipu offers exclusive jewelry collections and tailored gold plans for Mangalore customers. Visit us today!">
+
+<!-- Gold Plans Page Meta Description -->
+<meta name="description" content="Explore flexible gold plans at GD Gold, Mudipu’s trusted source for quality jewelry in Mangalore. Start your savings today!">
+
+<!-- Contact Page Meta Description -->
+<meta name="description" content="Visit GD Gold in Mudipu, Mangalore for quality gold plans and more. Contact us today for exclusive options.">
+
   <title>GD Gold and Diamonds</title>
   <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   <link rel="stylesheet" href="./css/style.css" />
