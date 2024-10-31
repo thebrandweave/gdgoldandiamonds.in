@@ -179,7 +179,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>
                                         <td>" . htmlspecialchars($row['popup_id']) . "</td>
-                                        <td><a href='" . htmlspecialchars($row['popup_image_url']) . "' target='_blank'>View Image</a></td>
+                                        <td><a href='" . htmlspecialchars($row['popup_image']) . "' target='_blank'>View Image</a></td>
                                         <td>" . htmlspecialchars($row['title']) . "</td>
                                         <td><a href='" . htmlspecialchars($row['link_url']) . "' target='_blank'>Open Link</a></td>
                                         <td>" . htmlspecialchars($row['created_at']) . "</td>

@@ -164,23 +164,24 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
 
 
         <div class="container mt-5">
-        <h2>Add New Popup</h2>
-        <form action="insert_Popups.php" method="POST">
-            <div class="mb-3">
-                <label for="popup_image_url" class="form-label">Popup Image URL</label>
-                <input type="text" class="form-control" id="popup_image_url" name="popup_image_url" required>
-            </div>
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" required>
-            </div>
-            <div class="mb-3">
-                <label for="link_url" class="form-label">Link URL</label>
-                <input type="text" class="form-control" id="link_url" name="link_url" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Add Popup</button>
-        </form>
-    </div>
+    <h2>Add New Popup</h2>
+    <form action="insert_Popups.php" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="popup_image" class="form-label">Popup Image</label>
+            <input type="file" class="form-control" id="popup_image" name="popup_image" required>
+        </div>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+        </div>
+        <div class="mb-3">
+            <label for="link_url" class="form-label">Link URL</label>
+            <input type="text" class="form-control" id="link_url" name="link_url" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Popup</button>
+    </form>
+</div>
+
 
 
 
