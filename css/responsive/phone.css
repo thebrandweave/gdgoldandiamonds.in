@@ -8,7 +8,9 @@
     scroll-behavior: smooth;
   }
   
-
+.whyTochooseUs{
+  font-size: 12px !important;
+}
   #header {
     /* width: 100vw; */
     /* max-width: 100vw; */

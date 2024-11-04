@@ -9,15 +9,15 @@ include("./adminFiles/config.php");
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!--   seo optimization -->
-<!-- Homepage Meta Description -->
-<meta name="description" content="GD Gold and Diamonds in Mudipu offers exclusive jewelry collections and tailored gold plans for Mangalore customers. Visit us today!">
+  <!--   seo optimization -->
+  <!-- Homepage Meta Description -->
+  <meta name="description" content="GD Gold and Diamonds in Mudipu offers exclusive jewelry collections and tailored gold plans for Mangalore customers. Visit us today!">
 
-<!-- Gold Plans Page Meta Description -->
-<meta name="description" content="Explore flexible gold plans at GD Gold, Mudipu’s trusted source for quality jewelry in Mangalore. Start your savings today!">
+  <!-- Gold Plans Page Meta Description -->
+  <meta name="description" content="Explore flexible gold plans at GD Gold, Mudipu’s trusted source for quality jewelry in Mangalore. Start your savings today!">
 
-<!-- Contact Page Meta Description -->
-<meta name="description" content="Visit GD Gold in Mudipu, Mangalore for quality gold plans and more. Contact us today for exclusive options.">
+  <!-- Contact Page Meta Description -->
+  <meta name="description" content="Visit GD Gold in Mudipu, Mangalore for quality gold plans and more. Contact us today for exclusive options.">
 
   <title>GD Gold and Diamonds</title>
   <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
@@ -88,15 +88,15 @@ include("./adminFiles/config.php");
 
   ?>
 
-<div style="display: <?php echo $popup_visiblity; ?>;" class="popupAd" id="offerModal">
-  <div class="custom-modal">
-    <a onclick="closePopup()" class="close-btn">&times;</a>
-    <img src="<?php echo htmlspecialchars(str_replace('../', './adminFiles/', $ad['popup_image_url'])); ?>" 
-         alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
-    <p><?php echo htmlspecialchars($ad['title']); ?></p>
-    <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
-  </div>
-</div>
+    <div style="display: <?php echo $popup_visiblity; ?>;" class="popupAd" id="offerModal">
+      <div class="custom-modal">
+        <a onclick="closePopup()" class="close-btn">&times;</a>
+        <img src="<?php echo htmlspecialchars(str_replace('../', './adminFiles/', $ad['popup_image_url'])); ?>"
+          alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
+        <p><?php echo htmlspecialchars($ad['title']); ?></p>
+        <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
+      </div>
+    </div>
 
 
 
@@ -255,15 +255,16 @@ include("./adminFiles/config.php");
     <div class="row">
       <div class="col-md-6 Cont2info">
         <h1 data-aos-delay="100" data-aos="fade-up">Why Choose Us</h1>
-    
-<p>
-At GD GOLD AND DIAMONDS, we’re dedicated to providing a trusted, high-quality experience for our clients. With ethically sourced, rigorously inspected gold, we ensure each piece meets the highest standards. Whether you’re new to investing or an experienced buyer, our range of products offers something for everyone.</p>
-<p>
 
-Our expert team at GD GOLD AND DIAMONDS brings decades of experience, dedicated to empowering clients with knowledge and personalized guidance. Whether you're investing in gold for security, growth, or as a family heirloom, we're here to support informed decisions. Your success is our priority.</p>
-<p>
+        <p class="whyTochooseUs">
+          At GD GOLD AND DIAMONDS, we’re dedicated to providing a trusted, high-quality experience for our clients. With ethically sourced, rigorously inspected gold, we ensure each piece meets the highest standards. Whether you’re new to investing or an experienced buyer, our range of products offers something for everyone.</p>
+        <p class="whyTochooseUs">
 
-Choosing GD GOLD AND DIAMONDS means partnering with a team committed to integrity, transparency, and excellence. We prioritize long-term relationships, offering trusted guidance to help secure your financial future with confidence.</p></div>
+          Our expert team at GD GOLD AND DIAMONDS brings decades of experience, dedicated to empowering clients with knowledge and personalized guidance. Whether you're investing in gold for security, growth, or as a family heirloom, we're here to support informed decisions. Your success is our priority.</p>
+        <p class="whyTochooseUs">
+
+          Choosing GD GOLD AND DIAMONDS means partnering with a team committed to integrity, transparency, and excellence. We prioritize long-term relationships, offering trusted guidance to help secure your financial future with confidence.</p>
+      </div>
       <div class="col-md-6 text-center section2">
         <img data-aos-delay="100" data-aos="fade-up" src="./images/bangle.png" alt="" />
       </div>
