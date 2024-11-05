@@ -94,7 +94,7 @@ include("./adminFiles/config.php");
         <img src="<?php echo htmlspecialchars(str_replace('../', './adminFiles/', $ad['popup_image_url'])); ?>"
           alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image">
         <p><?php echo htmlspecialchars($ad['title']); ?></p>
-        <a href="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Open</a>
+        <a onclick="closePopup()" id="<?php echo htmlspecialchars($ad['link_url']); ?>" class="btn btn-shop">Close</a>
       </div>
     </div>
 
