@@ -203,7 +203,7 @@ video {
 /* --------------------container4----------------- */
 .container5 {
   width: 90%;
-  background-color: #bebebe;
+  background-color: transparent;
   height: 95vh;
   margin: 50px auto;
   margin-top: -30px !important;
@@ -265,16 +265,19 @@ video {
   background-image: linear-gradient(to right, #f6e27a 0, #cb9b51 22%, #f6e27a 45%, #f6e27a 50%, #f6e27a 55%, #cb9b51 78%, #d3b107 100%);
 }
 .contact-section {
-  background-color: #000;
+  background-color: #fff;
+  color: #000;
   border-radius: 10px;
   padding: 30px;
+  text-align: justify;
 }
 .info-section {
-  background-color: #000;
-  color: white;
+  background-color: #fff;
+  color: #000;
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: justify;
 }
 .social-icon {
   display: inline-block;
@@ -310,46 +313,41 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.circle {
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 10px solid transparent;
-  animation: rotate 1.5s linear infinite;
-  z-index: 1;
-}
-
-.circle:nth-child(1) {
-  border-top: 10px solid rgba(203, 155, 81, 0.8);
-  animation: rotate 1.5s linear infinite;
-}
-
-.circle:nth-child(2) {
-  border-top: 10px solid rgba(246, 226, 122, 0.8);
-  animation: rotate 1.5s linear infinite reverse;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  background: rgba(0,0,0,0.85);
 }
 .loadingAnimation {
-  position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.diamond-loader {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin-bottom: 30px;
+  animation: diamond-spin 1.5s linear infinite;
+}
+.diamond-shape {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #fff 60%, #f6e27a 100%);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  box-shadow: 0 0 30px 5px #f6e27a99, 0 0 10px 2px #fff;
+}
+@keyframes diamond-spin {
+  0% { transform: rotate(0deg) scale(1); }
+  80% { transform: rotate(320deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
 }
 .loadingAnimation img {
   z-index: 99;
-  animation: zoomInOut 1.5s linear infinite reverse;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInLogo 1.5s 0.5s forwards;
+}
+@keyframes fadeInLogo {
+  to { opacity: 1; }
 }
 .container3 {
   padding: 20px;

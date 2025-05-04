@@ -8,7 +8,7 @@ include("./adminFiles/config.php");
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GD Gold and Diamonds</title>
+  <title>Liyas gold & diamonds</title>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navBar.css" />
   <link rel="stylesheet" href="./css/footer.css" />
@@ -34,14 +34,14 @@ include("./adminFiles/config.php");
 
       <div class="circle"></div>
       <div class="circle"></div>
-      <img height="160" style="margin-top: -35px;" src="./images/gdlogo.png" alt="">
+      <img height="160" style="margin-top: -35px;" src="./images/liyaslogo.png" alt="">
 
     </div>
   </div>
 
   <!-- --------------- ----nav bar start ------------------ -->
   <header id="header">
-    <img src="./images/gdlogo.png" href="#" class="logo" />
+    <img src="./images/liyaslogo.png" href="#" class="logo" />
     <div class="menu">
       <a href="./">HOME</a>
       <a href="./about.php" >ABOUT</a>
@@ -80,7 +80,7 @@ include("./adminFiles/config.php");
         <div class="col-lg-6">
           <div class="info-section contactSectionHeight">
             <h2 class="mb-4 golden_Text">Let's get in touch</h2>
-            <p class="text-justify">Whether you have a question, need support, or just want to collaborate, we’re here to help. Feel free to reach out to us through the contact details provided or by filling out the form. We look forward to hearing from you!</p>
+            <p class="text-justify">Whether you have a question, need support, or just want to collaborate, we're here to help. Feel free to reach out to us through the contact details provided or by filling out the form. We look forward to hearing from you!</p>
             <p>#2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
             <p>lorem@ipsum.com</p>
             <p>123-456-789</p>
@@ -126,7 +126,7 @@ include("./adminFiles/config.php");
         <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
         <div class="row">
           <div class="col-3">
-            <img height="100" src="./images/gdlogo.png" alt="" />
+            <img height="100" src="./images/liyaslogo.png" alt="" />
           </div>
           <div class="col-8" style="text-align: left;">
             <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
@@ -135,7 +135,7 @@ include("./adminFiles/config.php");
         </div>
       </div>
       <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
-      <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
+      <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
       <a href="https://intelexsolutions.in" class="logo-column">
           <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
         </a>
@@ -162,7 +162,7 @@ include("./adminFiles/config.php");
     </div>
   </footer>
   <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
+    <p class="">Copyrights &copy; Liyas gold & diamonds</p>
 
   </div>
 

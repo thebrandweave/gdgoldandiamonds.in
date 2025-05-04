@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
                 </button>
                 <!-- Brand -->
                 <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/gdlogo.png" alt="...">
+                    <img src="../images/liyaslogo.png" alt="...">
                     GD Gold & Diamonds
 
                 </a>

@@ -8,7 +8,7 @@ include("./adminFiles/config.php");
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GD Gold and Diamonds</title>
+  <title>Liyas gold & diamonds</title>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/navBar.css" />
   <link rel="stylesheet" href="./css/footer.css" />
@@ -86,14 +86,14 @@ body {
 
       <div class="circle"></div>
       <div class="circle"></div>
-      <img height="160" style="margin-top: -35px;" src="./images/gdlogo.png" alt="">
+      <img height="160" style="margin-top: -35px;" src="./images/liyaslogo.png" alt="">
 
     </div>
   </div>
 
   <!-- --------------- ----nav bar start ------------------ -->
   <header id="header">
-    <img src="./images/gdlogo.png" href="#" class="logo" />
+    <img src="./images/liyaslogo1.png" href="#" class="logo" />
     <div class="menu">
       <a href="./">HOME</a>
       <a class="active">ABOUT</a>
@@ -151,7 +151,7 @@ body {
       <div class="card h-100 text-center shadow-sm">
         <div class="card-body">
           <i class="icon bi bi-gem"></i>
-          <h3 class="card-title mt-3">Gold and Diamonds</h3>
+          <h3 class="card-title mt-3">Liyas gold & diamonds</h3>
           <p class="card-text ">Experience the brilliance of our gold and diamond collection. Our exquisite jewelry pieces are designed to celebrate your special moments with elegance and style.</p>
         </div>
       </div>
@@ -197,38 +197,32 @@ body {
 </div>
   <footer class="site-footer">
     <div class="footer-content">
-
-
       <div style="width: 150% !important" class="footer-info second-column">
-        <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
-        <div class="row">
-          <div class="col-3">
-            <img height="100" src="./images/gdlogo.png" alt="" />
-          </div>
-          <div class="col-8" style="text-align: left;">
-            <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
+        <div class="footer-row">
+          <img class="footerLogo" src="./images/liyaslogo.png" alt="Liyas Logo" />
+          <div class="footer-info">
+            <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
             <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
           </div>
         </div>
       </div>
-      <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
-      <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-      <a href="https://intelexsolutions.in" class="logo-column">
-          <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
+      <div style="width: 100% !important" class="footer-info second-column">
+        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
+        <a href="https://intelexsolutions.in" class="logo-column">
+          <img height="85" src="./images/footerCreditsIS.png" alt="" />
         </a>
       </div>
-      <nav class="footer-nav third-column ">
+      <nav class="footer-nav third-column">
         <ul>
           <li><a href="./">Home</a></li>
           |&nbsp;&nbsp;
-          <li><a href="./privacy-policy/"> About us</a></li>
+          <li><a href="./about.php">About us</a></li>
           |&nbsp;&nbsp;
-          <li><a href="./contact">Collections</a></li>
+          <li><a href="./collections.php">Collections</a></li>
           |&nbsp;&nbsp;
-          <li><a href="./privacy-policy/">Plans</a></li>
+          <li><a href="./plans.php">Plans</a></li>
         </ul>
         <div style="width: 100%;text-align: center;">
-
           <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
             <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
             <span class="social-icon"><i class="fa fa-instagram"></i> </span>
@@ -239,8 +233,7 @@ body {
     </div>
   </footer>
   <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
-
+    <p class="">Copyrights &copy; Liyas gold & diamonds</p>
   </div>
 
   <script src="./js/main.js"></script>

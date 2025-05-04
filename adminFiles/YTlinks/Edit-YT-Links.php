@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/gdlogo.png" alt="...">
+                    <img src="../images/liyaslogo.png" alt="...">
                     GD Gold & Diamonds
                 </a>
                 <!-- User menu (mobile) -->

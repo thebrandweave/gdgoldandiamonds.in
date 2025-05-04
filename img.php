@@ -65,7 +65,7 @@ object-fit: cover;
 
 <body class="content">
     <header id="header">
-        <img src="./images/gdlogo.png" href="#" class="logo" />
+        <img src="./images/liyaslogo.png" href="#" class="logo" />
         <div class="menu">
             <a href="./">HOME</a>
             <a href="./about.php">ABOUT</a>

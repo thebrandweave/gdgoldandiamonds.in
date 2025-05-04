@@ -1,5 +1,7 @@
 <?php
     include("./adminFiles/config.php");
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +9,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GD Gold and Diamonds</title>
+    <title>Liyas gold & diamonds</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/navBar.css" />
     <link rel="stylesheet" href="./css/footer.css" />
@@ -33,14 +35,14 @@
     
         <div class="circle"></div>
         <div class="circle"></div>
-        <img height="160" style="margin-top: -35px;" src="./images/gdlogo.png" alt="">
+        <img height="160" style="margin-top: -35px;" src="./images/liyaslogo.png" alt="">
     
       </div>
     </div>
     
     <!-- --------------- ----nav bar start ------------------ -->
     <header id="header">
-      <img src="./images/gdlogo.png" href="#" class="logo" />
+      <img src="./images/liyaslogo1.png" href="#" class="logo" />
       <div class="menu">
         <a href="./"  >HOME</a>
         <a href="./about.php" onclick="closeMenu()">ABOUT</a>
@@ -103,57 +105,87 @@ if ($col_result === FALSE) {
 
 </div>
 
-<?php
-    $conn->close();
-?>
-
+<!-- ------------------------All Collection Items Start-------------------------------- -->
+<div class="container4 text-center mt-5">
+  <h2 data-aos-delay="100" data-aos="fade-up">- All Collection Items -</h2>
+  <div data-aos-delay="100" data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline ourCollectionsUnderlinePhone"><p></p></div>
+  <?php
+  $items_sql = "SELECT ci.*, c.collection_name FROM collection_items ci JOIN collections c ON ci.collection_id = c.collection_id ORDER BY ci.sort_order ASC";
+  $items_result = $conn->query($items_sql);
+  if ($items_result === FALSE) {
+      echo "<p>Error fetching items: " . $conn->error . "</p>";
+  } elseif ($items_result->num_rows > 0) {
+      echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">';
+      while ($item = $items_result->fetch_assoc()) {
+  ?>
+        <div class="col d-flex">
+          <div class="CI_Card card h-100 shadow-sm">
+            <div class="card-img-top bg-light" style="height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
+              <img src="./adminFiles/CollectionItems/<?php echo htmlspecialchars($item['item_image_url']); ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" class="img-fluid imageHeight_CI" style="max-height: 100%;">
+            </div>
+            <div class="card-body text-left" style="padding: 10px;">
+              <h6 class="card-title mb-2" style="font-weight: 600; font-size: 1rem;">
+                <?php echo htmlspecialchars($item['item_name']); ?>
+              </h6>
+              <div class="row" style="justify-content:center !important; display: flex; align-items: center;">
+                <p class="price text-secondary mb-2 col-md" style="font-size: 0.9rem; font-weight: bold; margin-right: 10px;">
+                  <del>₹<?php echo $item['original_price']; ?></del> &nbsp;
+                  <span class="text-dark">₹<?php echo $item['selling_price']; ?></span>
+                </p>
+              </div>
+              <div class="text-muted" style="font-size: 0.8rem;">Collection: <?php echo htmlspecialchars($item['collection_name']); ?></div>
+            </div>
+          </div>
+        </div>
+  <?php
+      }
+      echo '</div>';
+  } else {
+      echo "<p>No collection items found.</p>";
+  }
+  $conn->close();
+  ?>
+</div>
 
 <footer class="site-footer">
-      <div class="footer-content">
-
-
-        <div style="width: 150% !important" class="footer-info second-column">
-          <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
-          <div class="row">
-            <div class="col-3">
-              <img height="100" src="./images/gdlogo.png" alt="" />
-            </div>
-            <div class="col-8" style="text-align: left;">
-              <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-              <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-            </div>
+    <div class="footer-content">
+      <div style="width: 150% !important" class="footer-info second-column">
+        <div class="footer-row">
+          <img class="footerLogo" src="./images/liyaslogo.png" alt="Liyas Logo" />
+          <div class="footer-info">
+            <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
+            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
           </div>
         </div>
-        <div style="width: 100% !important; text-align:center;" class="footer-info second-column">
-        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; GD Golds and Diamonds</p>
-          <a href="https://intelexsolutions.in" class="logo-column">
-          <img style="height:85px;" src="./images/footerCreditsIS.png" alt="" />
-        </a>
-        </div>
-        <nav class="footer-nav third-column ">
-          <ul>
-            <li><a href="./">Home</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/"> About us</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./contact">Collections</a></li>
-            |&nbsp;&nbsp;
-            <li><a href="./privacy-policy/">Plans</a></li>
-          </ul>
-          <div style="width: 100%;text-align: center;">
-
-            <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
-              <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-              <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-              <span class="social-icon"><i class="fa fa-twitter"></i> </span>
-            </div>
-          </div>
-        </nav>
       </div>
-    </footer>
-    <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; GD Golds and Diamonds</p>
-
+      <div style="width: 100% !important" class="footer-info second-column">
+        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
+        <a href="https://intelexsolutions.in" class="logo-column">
+          <img height="85" src="./images/footerCreditsIS.png" alt="" />
+        </a>
+      </div>
+      <nav class="footer-nav third-column">
+        <ul>
+          <li><a href="./">Home</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./about.php">About us</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./collections.php">Collections</a></li>
+          |&nbsp;&nbsp;
+          <li><a href="./plans.php">Plans</a></li>
+        </ul>
+        <div style="width: 100%;text-align: center;">
+          <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
+            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
+            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
+            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>
+  <div class="phoneFooterCopyright">
+    <p class="">Copyrights &copy; Liyas gold & diamonds</p>
   </div>
 
 <script src="./js/main.js"></script>
