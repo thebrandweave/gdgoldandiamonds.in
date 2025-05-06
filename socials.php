@@ -121,7 +121,7 @@ include("./adminFiles/config.php");
         <!-- <p class="footer-business-name">Copyrights &copy; GD Golds and Diamonds</p> -->
         <div class="row">
           <div class="col-3">
-            <img height="100" src="./images/liyaslogo.png" alt="" />
+            <img height="100" src="./images/liyaslogo1.png" alt="" />
           </div>
           <div class="col-8" style="text-align: left;">
             <p class="footer-business-address "><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>

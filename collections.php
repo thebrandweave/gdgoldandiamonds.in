@@ -151,7 +151,7 @@ if ($col_result === FALSE) {
     <div class="footer-content">
       <div style="width: 150% !important" class="footer-info second-column">
         <div class="footer-row">
-          <img class="footerLogo" src="./images/liyaslogo.png" alt="Liyas Logo" />
+          <img class="footerLogo" src="./images/liyaslogo1.png" alt="Liyas Logo" />
           <div class="footer-info">
             <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
             <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
