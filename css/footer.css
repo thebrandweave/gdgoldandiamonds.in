@@ -109,3 +109,27 @@ width: 100vw;
   background: transparent;
   display: block;
 }
+
+.intelex-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.logo-column {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-column:hover {
+  transform: scale(1.05);
+}
+
+.logo-column img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
