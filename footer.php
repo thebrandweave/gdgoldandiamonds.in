@@ -10,11 +10,13 @@
         </div>
       </div>
     </div>
-    <div style="width: 100% !important" class="footer-info second-column">
+    <div style="width: 100% !important" class="footer-info second-column text-center">
       <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
-      <a href="https://intelexsolutions.in" class="logo-column">
-        <img height="85" src="./images/footerCreditsIS.png" alt="" />
-      </a>
+      <div class="intelex-logo-container">
+        <a href="https://intelexsolutions.in" class="logo-column">
+          <img height="85" src="./images/footerCreditsIS.png" alt="Intelex Solutions" />
+        </a>
+      </div>
     </div>
     <nav class="footer-nav third-column">
       <ul>
