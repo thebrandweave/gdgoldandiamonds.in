@@ -35,17 +35,28 @@ include("./adminFiles/config.php");
   <!-- aos animation  -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+  <style>
+    /* Collections.php loader styles */
+    .loader-bg {
+      position: fixed; z-index: 9999; width: 100vw; height: 100vh;
+      background: #000; display: flex; align-items: center; justify-content: center;
+      transition: opacity 1s;
+    }
+    .loader-logo {
+      width: 120px; animation: logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes logoPop {
+      0% { transform: scale(0.5); opacity: 0; }
+      80% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+  </style>
 
 </head>
 
 <body class="content">
-  <div class="loading">
-    <div class="loadingAnimation">
-      <div class="diamond-loader">
-        <div class="diamond-shape"></div>
-      </div>
-      <img height="100" style="margin-top: 0;" src="./images/liyaslogo1.png" alt="Liyas Logo">
-    </div>
+  <div id="loader" class="loader-bg">
+    <img src="./images/liyaslogo1.png" class="loader-logo" alt="Logo" />
   </div>
 
   <!-- --------------- ----nav bar start ------------------ -->
@@ -294,35 +305,13 @@ include("./adminFiles/config.php");
         while ($row = $tc_result->fetch_assoc()) {
       ?>
           <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/classynecklace.avif" alt="Gold Necklace Collection" />
-            <p>Gold Necklace Collection</p>
-          </div>
-          <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/DiamondJEwellery.avif" alt="Diamond Rings" />
-            <p>Diamond Rings</p>
-          </div>
-          <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/Festive.webp" alt="Bridal Collection" />
-            <p>Bridal Collection</p>
+            <img src="<?php echo './adminFiles/' . str_replace('../', '', htmlspecialchars($row['collection_image_url'])); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
+            <p><?php echo htmlspecialchars($row['collection_name']); ?></p>
           </div>
       <?php
         }
       } else {
-        // If no trending collections in database, show default trending items
-      ?>
-          <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/classynecklace.avif" alt="Gold Necklace Collection" />
-            <p>Gold Necklace Collection</p>
-          </div>
-          <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/DiamondJEwellery.avif" alt="Diamond Rings" />
-            <p>Diamond Rings</p>
-          </div>
-          <div data-aos-delay="100" data-aos="fade-up" class="col-md-3 trend_Container">
-            <img src="./images/Festive.webp" alt="Bridal Collection" />
-            <p>Bridal Collection</p>
-          </div>
-      <?php
+        echo "<p>No trending collections found in database.</p>";
       }
       ?>
     </div>
@@ -360,7 +349,7 @@ include("./adminFiles/config.php");
         }
     ?>
         <a href="./collectionItems.php?col_id=<?php echo $row['collection_id']; ?>" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&auto=format&fit=crop&q=60" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
+          <img src="<?php echo './adminFiles/' . str_replace('../', '', htmlspecialchars($row['collection_image_url'])); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" />
           <p><?php echo htmlspecialchars($row['collection_name']); ?></p>
         </a>
     <?php
@@ -371,37 +360,7 @@ include("./adminFiles/config.php");
         echo "</div>";
       }
     } else {
-      // If no collections in database, show default collections
-      ?>
-      <div class="row" style="justify-content: space-around">
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&auto=format&fit=crop&q=60" alt="Gold Bangles" />
-          <p>Gold Bangles</p>
-        </a>
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop&q=60" alt="Diamond Earrings" />
-          <p>Diamond Earrings</p>
-        </a>
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&auto=format&fit=crop&q=60" alt="Gold Chains" />
-          <p>Gold Chains</p>
-        </a>
-      </div>
-      <div class="row" style="justify-content: space-around">
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=800&auto=format&fit=crop&q=60" alt="Gold Bracelets" />
-          <p>Gold Bracelets</p>
-        </a>
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=800&auto=format&fit=crop&q=60" alt="Diamond Necklaces" />
-          <p>Diamond Necklaces</p>
-        </a>
-        <a href="./collectionItems.php" data-aos-delay="100" data-aos="fade-up" class="col-md-3 Coll_Container btn">
-          <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&auto=format&fit=crop&q=60" alt="Gold Earrings" />
-          <p>Gold Earrings</p>
-        </a>
-      </div>
-      <?php
+      echo "<p>No collections found in database.</p>";
     }
     ?>
 
@@ -616,47 +575,7 @@ include("./adminFiles/config.php");
 
 
 
-  <!-- ----------------foooter start ----------------  -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div style="width: 150% !important" class="footer-info second-column">
-        <div class="footer-row">
-          <img class="footerLogo" src="./images/liyaslogo1.png" alt="Liyas Logo" />
-          <div class="footer-info">
-            <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 100% !important" class="footer-info second-column">
-        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
-        <a href="https://intelexsolutions.in" class="logo-column">
-          <img height="85" src="./images/footerCreditsIS.png" alt="" />
-        </a>
-      </div>
-      <nav class="footer-nav third-column">
-        <ul>
-          <li><a href="./">Home</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./about.php">About us</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./collections.php">Collections</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./plans.php">Plans</a></li>
-        </ul>
-        <div style="width: 100%;text-align: center;">
-          <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
-            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </footer>
-  <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; Liyas gold & diamonds</p>
-  </div>
+  <?php include('./footer.php'); ?>
 
 
 
@@ -693,6 +612,16 @@ include("./adminFiles/config.php");
     function closePopup() {
       document.getElementById('offerModal').style.display = "none"
     }
+  </script>
+
+  <!-- Loader functionality -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.opacity = 0;
+        setTimeout(() => document.getElementById('loader').style.display = 'none', 1000);
+      }, 1500);
+    });
   </script>
 </body>
 

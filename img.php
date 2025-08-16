@@ -14,9 +14,9 @@ $item = [];
 if ($item_result->num_rows > 0) {
     $row = $item_result->fetch_assoc();
     $title = htmlspecialchars($row['item_name']);
-    $favicon_url = "./adminFiles/CollectionItems/" . htmlspecialchars($row['item_image_url']);
+    $favicon_url = "./adminFiles/" . str_replace('../', '', htmlspecialchars($row['item_image_url']));
     $item = [
-        "image_url" => "./adminFiles/CollectionItems/" . htmlspecialchars($row['item_image_url']),
+        "image_url" => "./adminFiles/" . str_replace('../', '', htmlspecialchars($row['item_image_url'])),
         "name" => htmlspecialchars($row['item_name']),
         "description" => htmlspecialchars($row['item_description']),
         "original_price" => number_format($row['original_price'], 2),

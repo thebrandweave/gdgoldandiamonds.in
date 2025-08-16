@@ -25,18 +25,27 @@ include("./adminFiles/config.php");
       height: auto;
       min-height: 100vh;
     }
+    
+    /* Collections.php loader styles */
+    .loader-bg {
+      position: fixed; z-index: 9999; width: 100vw; height: 100vh;
+      background: #000; display: flex; align-items: center; justify-content: center;
+      transition: opacity 1s;
+    }
+    .loader-logo {
+      width: 120px; animation: logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    @keyframes logoPop {
+      0% { transform: scale(0.5); opacity: 0; }
+      80% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 
 <body class="content">
-  <div class="loading">
-    <div class="loadingAnimation">
-
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <img height="160" style="margin-top: -35px;" src="./images/liyaslogo.png" alt="">
-
-    </div>
+  <div id="loader" class="loader-bg">
+    <img src="./images/liyaslogo1.png" class="loader-logo" alt="Logo" />
   </div>
 
   <!-- --------------- ----nav bar start ------------------ -->
@@ -118,46 +127,7 @@ include("./adminFiles/config.php");
       </div>
     </div>
   </div>
-  <footer class="site-footer">
-    <div class="footer-content">
-      <div style="width: 150% !important" class="footer-info second-column">
-        <div class="footer-row">
-          <img class="footerLogo" src="./images/liyaslogo1.png" alt="Liyas Logo" />
-          <div class="footer-info">
-            <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
-            <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
-          </div>
-        </div>
-      </div>
-      <div style="width: 100% !important" class="footer-info second-column">
-        <p class="footer-business-name pcFooterCopyright">Copyrights &copy; Liyas gold & diamonds</p>
-        <a href="https://intelexsolutions.in" class="logo-column">
-          <img height="85" src="./images/footerCreditsIS.png" alt="" />
-        </a>
-      </div>
-      <nav class="footer-nav third-column">
-        <ul>
-          <li><a href="./">Home</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./about.php">About us</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./collections.php">Collections</a></li>
-          |&nbsp;&nbsp;
-          <li><a href="./plans.php">Plans</a></li>
-        </ul>
-        <div style="width: 100%;text-align: center;">
-          <div class="mt-2 socialBtns" title="Social Accounts" onclick="window.location.href='./socials.php'">
-            <span class="social-icon"><i class="fa fa-whatsapp"></i> </span>
-            <span class="social-icon"><i class="fa fa-instagram"></i> </span>
-            <span class="social-icon"><i class="fa fa-twitter"></i> </span>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </footer>
-  <div class="phoneFooterCopyright">
-    <p class="">Copyrights &copy; Liyas gold & diamonds</p>
-  </div>
+  <?php include('./footer.php'); ?>
 
   <script src="./js/main.js"></script>
   <script src="./js/navBar.js"></script>  
@@ -177,6 +147,16 @@ include("./adminFiles/config.php");
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+
+  <!-- Loader functionality -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.opacity = 0;
+        setTimeout(() => document.getElementById('loader').style.display = 'none', 1000);
+      }, 1500);
+    });
   </script>
 </body>
 

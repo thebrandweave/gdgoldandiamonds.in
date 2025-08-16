@@ -8,7 +8,7 @@ if (strpos($host, 'liyasgoldanddiamonds.com') !== false) {
 
 } else {
     // Otherwise, use this connection
-    $conn = new mysqli("localhost", "root", "", "gd-gold");
+    $conn = new mysqli("localhost", "root", "", "u593219986_gd_gold");
     // echo "this is in local host";
 
 }
