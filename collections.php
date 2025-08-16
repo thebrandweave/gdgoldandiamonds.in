@@ -111,7 +111,7 @@
         <a href="./about.php" onclick="closeMenu()">ABOUT</a>
         <a class="active" >COLLECTIONS</a>
         <a href="./plans.php" onclick="closeMenu()">PLANS</a>
-        <a href="https://goldendream.in/login" onclick="closeMenu()">Login</a>
+        <a href="https://goldendream.in/landing" onclick="closeMenu()">Login</a>
         <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
       </div>
       <div class="menu-shadow" onclick="closeMenu()"></div>

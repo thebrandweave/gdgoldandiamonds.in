@@ -137,7 +137,7 @@ include("./adminFiles/config.php");
       <a class="active">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
       <a href="./plans.php">PLANS</a>
-      <span> <a href="https://goldendream.in/login" class="active">LOGIN</a>
+      <span> <a href="https://goldendream.in/landing" class="active">LOGIN</a>
       </span>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>

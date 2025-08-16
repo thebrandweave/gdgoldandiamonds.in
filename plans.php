@@ -56,7 +56,7 @@ include("./adminFiles/config.php");
       <a href="./about.php">ABOUT</a>
       <a href="./collections.php">COLLECTIONS</a>
       <a class="active">PLANS</a>
-      <a href="https://goldendream.in/login" >Login</a>
+      <a href="https://goldendream.in/landing" >Login</a>
       <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
     </div>
     <div class="menu-shadow" onclick="closeMenu()"></div>
