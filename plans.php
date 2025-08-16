@@ -72,6 +72,8 @@ include("./adminFiles/config.php");
       <h5 class="text-light">Mega Gold Savings Plan</h5> <br>
 
       <iframe src="https://drive.google.com/file/d/12hA0S1-X15IKP1k6eCHI6zKHjSEoruki/preview" width="100%" height="600" frameborder="0"></iframe>
+      
+      <iframe src="https://drive.google.com/file/d/1V_Nas4bwU1f7Ih9VTlpxbg2No_1SO9R-/preview" width="100%" height="600" frameborder="0" style="margin-top: 20px;"></iframe>
       <div class="row justify-content-center bg-dark">
         <div class="row col-md-8 justify-content-between"> <a href="./files/gb.pdf" class="btn col-md bg-golden "> <strong>Download brochure </strong> &nbsp; <i class="fa fa-download"></i>
         </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
