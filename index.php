@@ -140,7 +140,7 @@ include("./adminFiles/config.php");
             </h2>
             <br>
             <span> <a href="./plans.php" class="btn btn-outline-warning golden_BG homeScreenBtn">Explore Now</a>
-            </span><span> <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
+            </span><span> <a href="https://goldendream.in/landing" class="btn btn golden_BG homeScreenBtn bg-golden">Register</a>
             </span>
           </div>
         </div>
