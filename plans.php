@@ -71,13 +71,13 @@ include("./adminFiles/config.php");
     <div class="col-12 col-md-6 mb-3">
       <h5 class="text-light">Mega Gold Savings Plan</h5> <br>
 
-      <iframe src="https://drive.google.com/file/d/12hA0S1-X15IKP1k6eCHI6zKHjSEoruki/preview" width="100%" height="600" frameborder="0"></iframe>
-      
-      <iframe src="https://drive.google.com/file/d/1V_Nas4bwU1f7Ih9VTlpxbg2No_1SO9R-/preview" width="100%" height="600" frameborder="0" style="margin-top: 20px;"></iframe>
+      <iframe src="https://drive.google.com/file/d/1V_Nas4bwU1f7Ih9VTlpxbg2No_1SO9R-/preview" width="100%" height="600" frameborder="0"></iframe>
       <div class="row justify-content-center bg-dark">
-        <div class="row col-md-8 justify-content-between"> <a href="./files/gb.pdf" class="btn col-md bg-golden "> <strong>Download brochure </strong> &nbsp; <i class="fa fa-download"></i>
-        </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a href="https://goldendream.in/referral-user/registration/5fOKJqalEd" class="btn col-md btn-light">Register Now &nbsp; <i class="fa fa-external-link"></i>
+        <div class="row col-md-8 justify-content-between"> 
+          <a href="./files/gb.pdf" class="btn col-md bg-golden" download="Mega_Gold_Savings_Plan_Brochure.pdf"> 
+            <strong>Download brochure</strong> &nbsp; <i class="fa fa-download"></i>
+          </a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://goldendream.in/landing" class="btn col-md btn-light">Register Now &nbsp; <i class="fa fa-external-link"></i>
           </a>
         </div>
 
