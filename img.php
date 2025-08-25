@@ -71,7 +71,7 @@ object-fit: cover;
             <a href="./about.php">ABOUT</a>
             <a href="./collections.php" class="active">COLLECTIONS</a>
             <a href="./plans.php">PLANS</a>
-            <a href="https://goldendream.in/landing">Login</a>
+            <a href="https://goldendream.in/landing ">Login</a>
             <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
         </div>
         <div class="menu-shadow" onclick="closeMenu()"></div>
