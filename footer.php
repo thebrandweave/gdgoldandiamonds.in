@@ -5,6 +5,7 @@
       <div class="footer-row">
         <img class="footerLogo" src="./images/liyaslogo1.png" alt="Liyas Logo" />
         <div class="footer-info">
+          <h3 class="footer-business-name"><strong><a href="https://goldendream.in/landing/about/#pro-gee-dee-ventures" target="_blank" style="color:rgb(165, 162, 154); text-decoration: none;">PROO GEE DEE VENTURES</a></strong></h3>
           <p class="footer-business-address"><strong>Locations:</strong> #2-108/C-7, Ground Floor, Sri Mantame Complex, Near Soorya Infotech Park, Kurnadu Post, Mudipu Road, Bantwal- 574153</p>
           <p class="footer-business-phone"><strong>Phone: </strong>+91 73497 39580</p>
         </div>
@@ -39,6 +40,6 @@
   </div>
 </footer>
 <div class="phoneFooterCopyright">
-  <p class="">Copyrights &copy; Liyas gold & diamonds</p>
+  <p class="">Copyrights &copy; PROO GEE DEE VENTURES - Liyas gold & diamonds</p>
 </div>
 <!-- ----------------foooter end ----------------  -->
