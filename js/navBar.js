@@ -21,6 +21,4 @@ function closeMenu() {
   header.style.minHeight= "60px";
 
 }
-window.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});
+

@@ -1,236 +1,187 @@
 <?php
-    include("./adminFiles/config.php");
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+include("./adminFiles/config.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Liyas gold & diamonds</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/navBar.css" />
-    <link rel="stylesheet" href="./css/footer.css" />
-    <link rel="stylesheet" href="./css/testimonials.css" />
-    <link rel="stylesheet" href="./css//responsive/phone.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <!-- font awesome  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <!-- aos animation  -->
-         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<style>
-  .container4{
-    height:auto;
-    min-height:100vh;
-  }
-  .loader-bg {
-    position: fixed; z-index: 9999; width: 100vw; height: 100vh;
-    background: #000; display: flex; align-items: center; justify-content: center;
-    transition: opacity 1s;
-  }
-  .loader-logo {
-    width: 120px; animation: logoPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
-  }
-  @keyframes logoPop {
-    0% { transform: scale(0.5); opacity: 0; }
-    80% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(1); }
-  }
-  body {
-    background: linear-gradient(-45deg, #ffd700, #fff, #bfa14a, #000);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-  }
-  @keyframes gradientBG {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
-  }
-  .card {
-    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  }
-  .card:hover {
-    transform: translateY(-10px) scale(1.04);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-    z-index: 2;
-  }
-  .collection-card {
-    border-radius: 18px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    border: 2px solid transparent;
-    background: rgba(255,255,255,0.03);
-  }
-  .collection-card:hover {
-    transform: translateY(-12px) scale(1.04);
-    box-shadow: 0 8px 32px 0 rgba(218,165,32,0.18), 0 2px 8px rgba(0,0,0,0.12);
-    border: 2px solid #ffd700;
-    z-index: 2;
-  }
-  .card-img-top-wrapper {
-    background: #222;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 220px;
-  }
-  .card-img-top {
-    max-height: 200px;
-    width: auto;
-    object-fit: contain;
-    transition: filter 0.3s;
-  }
-  .collection-card:hover .card-img-top {
-    filter: brightness(1.1) drop-shadow(0 0 8px #ffd70088);
-  }
-  .card-title {
-    font-weight: 600;
-    color: #ffd700;
-    font-size: 1.2rem;
-    margin: 0;
-    letter-spacing: 0.5px;
-  }
-</style>
-  </head>
-  
-  <body class="content">
-    <div id="loader" class="loader-bg">
-      <img src="./images/liyaslogo1.png" class="loader-logo" alt="Logo" />
-    </div>
-    
-    <!-- --------------- ----nav bar start ------------------ -->
-    <header id="header">
-      <img src="./images/liyaslogo1.png" href="#" class="logo" />
-      <div class="menu">
-        <a href="./"  >HOME</a>
-        <a href="./about.php" onclick="closeMenu()">ABOUT</a>
-        <a class="active" >COLLECTIONS</a>
-        <a href="./plans.php" onclick="closeMenu()">PLANS</a>
-        <a href="https://goldendream.in/landing" onclick="closeMenu()">Login</a>
-        <i class="fa fa-times close-menu" onclick="closeMenu()"></i>
-      </div>
-      <div class="menu-shadow" onclick="closeMenu()"></div>
-      <i class="fa fa-bars show-bar" onclick="openMenu()"></i>
-    </header>
-    <!-- --------------- ----nav bar end ------------------ -->
-<div style="height:60px;width:100vw"></div>
-    <!-- ------------------------Collections Start-------------------------------- -->
-    <?php
-    // Fetch collections from database
-    $col_sql = "SELECT collection_id, collection_name, collection_image_url FROM collections ORDER BY sort_order ASC";
-    $col_result = $conn->query($col_sql);
-?>
+<head>
+  <base href="<?php echo rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\') . '/'; ?>">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<!-- ------------------------Collections Start-------------------------------- -->
-<div class="container4 text-center">
-    <h2 data-aos-delay="100" data-aos="fade-up">-  our Collections -</h2>
-    <div data-aos-delay="100" data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline ourCollectionsUnderlinePhone"><p></p></div>
-    <div class="row justify-content-center">
-    <?php
-    if ($col_result === FALSE) {
-        echo "<p>Error fetching collections: " . $conn->error . "</p>";
-    } elseif ($col_result->num_rows > 0) {
-        $count = 0;
-        while ($row = $col_result->fetch_assoc()) {
-    ?>
-        <div class="col-md-4 mb-4">
-          <div class="card collection-card" data-aos="fade-up" data-aos-delay="<?php echo $count * 100; ?>">
-                         <div class="card-img-top-wrapper">
-               <img src="<?php echo './adminFiles/' . str_replace('../', '', htmlspecialchars($row['collection_image_url'])); ?>" alt="<?php echo htmlspecialchars($row['collection_name']); ?>" class="card-img-top" />
-             </div>
-            <div class="card-body">
-              <p class="card-title"><?php echo htmlspecialchars($row['collection_name']); ?></p>
-            </div>
-          </div>
-        </div>
-    <?php
-        $count++;
-        }
-    } else {
-        echo "<p>No collections found in database.</p>";
-    }
-    ?>
-    </div>
-</div>
+  <!-- SEO Optimization -->
+  <meta name="description" content="Explore our exqusite jewelry collections including Bridal, Diamond, Gold, Necklaces, Earrings, Rings, and Daily Wear at Liyas Gold & Diamonds.">
+  <title>Our Collections - Liyas Gold and Diamonds</title>
 
-<!-- ------------------------All Collection Items Start-------------------------------- -->
-<div class="container4 text-center mt-5">
-  <h2 data-aos-delay="100" data-aos="fade-up">- All Collection Items -</h2>
-  <div data-aos-delay="100" data-aos="fade-up" class="UnderLine text-center ourCollectionsUnderline ourCollectionsUnderlinePhone"><p></p></div>
-  <div class="row justify-content-center">
-  <?php
-  $items_sql = "SELECT ci.*, c.collection_name FROM collection_items ci JOIN collections c ON ci.collection_id = c.collection_id ORDER BY ci.sort_order ASC";
-  $items_result = $conn->query($items_sql);
-  if ($items_result === FALSE) {
-      echo "<p>Error fetching items: " . $conn->error . "</p>";
-  } elseif ($items_result->num_rows > 0) {
-      $count = 0;
-      while ($item = $items_result->fetch_assoc()) {
-          if ($count % 3 == 0) { // start a new row every 3 items
-              if ($count > 0) {
-                  echo "</div><br>"; // close previous row and add space between rows
-              }
-              echo '<div class="row" style="justify-content: space-around">';
-          }
-  ?>
-        <div class="col-md-4 mb-4">
-          <div class="card collection-card" data-aos="fade-up" data-aos-delay="<?php echo $count * 100; ?>">
-            <div class="card-img-top-wrapper">
-              <img src="<?php echo './adminFiles/' . str_replace('../', '', htmlspecialchars($item['item_image_url'])); ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>" class="card-img-top" />
-            </div>
-            <div class="card-body">
-              <p class="card-title"><?php echo htmlspecialchars($item['item_name']); ?></p>
-            </div>
-          </div>
-        </div>
-  <?php
-          $count++;
-      }
-      // Close the last row div if there are any remaining items
-      if ($count % 3 != 0) {
-          echo "</div>";
-      }
-  } else {
-      echo "<p>No collection items found.</p>";
-  }
-  $conn->close();
-  ?>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+  <link rel="stylesheet" href="./css/style.css?v=1.2" />
+  <link rel="stylesheet" href="./css/navBar.css?v=1.2" />
+  <link rel="stylesheet" href="./css/footer.css?v=1.2" />
+  <link rel="stylesheet" href="./css/testimonials.css?v=1.2" />
+  <link rel="stylesheet" href="./css/responsive/phone.css?v=1.2">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="content">
+
+  <!-- Loader Screen -->
+  <div id="loader" class="loader-bg">
+    <img src="./images/liyaslogo1.png" class="loader-logo" alt="Logo" />
   </div>
-</div>
 
-<?php include('./footer.php'); ?>
+  <!-- Include Shared Header Component -->
+  <?php include("./header.php"); ?>
 
-<script src="./js/main.js"></script>
-<script src="./js/navBar.js"></script>  
+  <div style="height:80px; width:100vw"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Hero Section -->
+  <section class="section-padding bg-cream" style="padding: 60px 0 30px;">
+    <div class="container">
+      <div class="section-title-wrapper" data-aos="fade-up">
+        <h2>Our Collections</h2>
+        <div class="divider"></div>
+        <p>Exquisite designs for every occasion.</p>
+      </div>
+    </div>
+  </section>
 
-    <script>
-      // Manually initialize the carousel with auto-slide and set interval of 5000ms
-      var myCarousel = document.querySelector("#carouselExample");
-      var carousel = new bootstrap.Carousel(myCarousel, {
-        interval: 5000, // 5 seconds
-        ride: "carousel", // Auto-start the carousel
-      });
-    </script>
+  <!-- Filter Pill Bar -->
+  <section class="bg-cream-light" style="padding-bottom: 20px;">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="filter-pill-bar">
+        <button class="filter-pill active" onclick="filterCategory('all')">All</button>
+        <button class="filter-pill" onclick="filterCategory('bridal')">Bridal</button>
+        <button class="filter-pill" onclick="filterCategory('diamond')">Diamond</button>
+        <button class="filter-pill" onclick="filterCategory('gold')">Gold</button>
+        <button class="filter-pill" onclick="filterCategory('necklaces')">Necklaces</button>
+        <button class="filter-pill" onclick="filterCategory('earrings')">Earrings</button>
+        <button class="filter-pill" onclick="filterCategory('rings')">Rings</button>
+      </div>
+    </div>
+  </section>
 
-<!-- aos animation script  -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init({ duration: 900, once: true });</script>
+  <!-- Collections Grid Section -->
+  <section class="section-padding bg-cream-light" style="padding-top: 30px; min-height: 60vh;">
+    <div class="container">
+      <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 justify-content-center" id="collections-grid">
+        
+        <?php
+        // Fetch collections from database
+        $col_sql = "SELECT collection_id, collection_name, collection_image_url FROM collections ORDER BY sort_order ASC";
+        $col_result = $conn->query($col_sql);
+        
+        if ($col_result && $col_result->num_rows > 0) {
+            $index = 0;
+            while ($row = $col_result->fetch_assoc()) {
+                $col_name = htmlspecialchars($row['collection_name']);
+                $col_img = './adminFiles/' . str_replace('../', '', htmlspecialchars($row['collection_image_url']));
+                
+                // Determine category filter tags dynamically
+                $tags = ['all'];
+                $col_name_lower = strtolower($col_name);
+                
+                if (strpos($col_name_lower, 'bridal') !== false || strpos($col_name_lower, 'wedding') !== false) {
+                    $tags[] = 'bridal';
+                }
+                if (strpos($col_name_lower, 'diamond') !== false) {
+                    $tags[] = 'diamond';
+                } else {
+                    $tags[] = 'gold'; // non-diamond collections default as gold
+                }
+                if (strpos($col_name_lower, 'necklace') !== false || strpos($col_name_lower, 'set') !== false) {
+                    $tags[] = 'necklaces';
+                }
+                if (strpos($col_name_lower, 'earring') !== false) {
+                    $tags[] = 'earrings';
+                }
+                if (strpos($col_name_lower, 'ring') !== false) {
+                    $tags[] = 'rings';
+                }
+                
+                $tag_string = implode(' ', $tags);
+        ?>
+              <div class="col collection-item-card" data-tags="<?php echo $tag_string; ?>" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
+                <a href="./collectionItems.php?col_id=<?php echo $row['collection_id']; ?>" class="collection-grid-card">
+                  <img src="<?php echo $col_img; ?>" alt="<?php echo $col_name; ?>" />
+                  <div class="collection-grid-card-overlay">
+                    <h4><?php echo $col_name; ?></h4>
+                  </div>
+                </a>
+              </div>
+        <?php
+                $index++;
+            }
+        } else {
+            // Static Fallback collections if DB is empty
+            $fallback_cols = [
+                ['Bridal Collection', './images/bridal_hero_bride.png', 'all bridal'],
+                ['Diamond Collection', './images/about_hero_necklace.png', 'all diamond necklaces'],
+                ['Gold Necklaces', './images/bridal_hero_necklace.png', 'all gold necklaces'],
+                ['Earrings', './images/earring12.png', 'all gold earrings'],
+                ['Rings', './images/showroom_interior.png', 'all gold diamond rings'],
+                ['Daily Wear', './images/bangle1.png', 'all gold'],
+                ['Wedding Sets', './images/bridal_hero_necklace.png', 'all bridal necklaces'],
+                ['Kids Collection', './images/bangle6.png', 'all gold'],
+                ['Bangles', './images/bangle1.png', 'all gold'],
+            ];
+            foreach ($fallback_cols as $idx => $fc) {
+        ?>
+              <div class="col collection-item-card" data-tags="<?php echo $fc[2]; ?>" data-aos="fade-up" data-aos-delay="<?php echo $idx * 100; ?>">
+                <a href="./collections.php" class="collection-grid-card">
+                  <img src="<?php echo $fc[1]; ?>" alt="<?php echo $fc[0]; ?>" />
+                  <div class="collection-grid-card-overlay">
+                    <h4><?php echo $fc[0]; ?></h4>
+                  </div>
+                </a>
+              </div>
+        <?php
+            }
+        }
+        ?>
 
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.getElementById('loader').style.opacity = 0;
-    setTimeout(() => document.getElementById('loader').style.display = 'none', 1000);
-  }, 1500);
-});
-</script>
-  </body>
+      </div>
+    </div>
+  </section>
+
+  <!-- Include Shared Footer Component -->
+  <?php include('./footer.php'); ?>
+
+  <script src="./js/main.js?v=1.2"></script>
+  <script src="./js/navBar.js?v=1.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+    
+    // Interactive Javascript Filtering
+    function filterCategory(category) {
+        // Toggle active class on buttons
+        const pills = document.querySelectorAll('.filter-pill');
+        pills.forEach(pill => pill.classList.remove('active'));
+        
+        // Add active class to clicked button
+        event.target.classList.add('active');
+        
+        // Filter cards
+        const cards = document.querySelectorAll('.collection-item-card');
+        cards.forEach(card => {
+            const tags = card.getAttribute('data-tags').split(' ');
+            if (category === 'all' || tags.includes(category)) {
+                card.style.display = 'block';
+                // Trigger AOS
+                card.classList.add('aos-animate');
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('aos-animate');
+            }
+        });
+    }
+  </script>
+</body>
+
 </html>
-

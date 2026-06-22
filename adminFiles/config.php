@@ -8,7 +8,7 @@ if (strpos($host, 'liyasgoldanddiamonds.com') !== false) {
 
 } else {
     // Otherwise, use this connection
-    $conn = new mysqli("localhost", "root", "", "u593219986_gd_gold");
+    $conn = new mysqli("localhost", "root", "", "gdgoldandiamonds");
     // echo "this is in local host";
 
 }
@@ -18,5 +18,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 
 }
+
+// Include live gold rate updater utility
+include_once __DIR__ . '/gold_rate_helper.php';
 
 ?>
