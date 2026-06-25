@@ -66,7 +66,7 @@ if ($col_res && $col_res->num_rows > 0) {
         <!-- Hero Image -->
         <div class="col-lg-6 text-center" data-aos="fade-left">
           <div class="home-hero-image-wrapper">
-            <img src="./images/bridal_hero_bride.png" class="img-fluid home-hero-image" alt="Bride Wearing Liyas Gold Collection" />
+            <img src="./images/hero1.jpg" class="img-fluid home-hero-image" alt="Bride Wearing Liyas Gold Collection" />
           </div>
         </div>
       </div>
