@@ -241,7 +241,7 @@ include("./adminFiles/config.php");
             </div>
           </div>
           <div class="col-md-6">
-            <img src="./images/bridal_hero_bride.png" class="w-100 bridal-edit-img" alt="Liyas Bridal Collection" />
+            <img src="./images/hero1.jpg" class="w-100 bridal-edit-img" alt="Liyas Bridal Collection" />
           </div>
         </div>
       </div>
