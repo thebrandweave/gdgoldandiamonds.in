@@ -421,7 +421,7 @@ if (!empty($bg_images)) {
                                                             <span class='pe-2'>
                                                                 <i class='bi bi-trash'></i>
                                                             </span>
-                                                            <span>Delete</span>
+                                                            <span style="color:white;">Delete</span>
                                                         </a>
                                                     </td>
                                                   </tr>";
