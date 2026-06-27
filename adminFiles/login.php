@@ -60,6 +60,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Login - Liyas Admin Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+.password-wrapper{
+    position: relative;
+}
+
+.password-wrapper .form-control{
+    padding-right: 45px;
+}
+
+.password-wrapper i{
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #8c8c8c;
+    font-size: 16px;
+    transition: .3s;
+}
+
+.password-wrapper i:hover{
+    color: #b8892b;
+}
+
+.form-control{
+    height:50px;
+    border-radius:10px;
+}
+</style>
 </head>
 <body class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background: var(--bg-gradient-main);">
     <div class="container">
@@ -86,10 +116,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                             </div>
                             <!-- Password -->
-                            <div class="mb-4">
-                                <label for="password" class="form-label fw-semibold">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
-                            </div>
+                           <div class="mb-4">
+    <label for="password" class="form-label fw-semibold">Password</label>
+
+    <div class="password-wrapper">
+        <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required>
+
+        <i class="fa fa-eye" id="togglePassword"></i>
+    </div>
+</div>
 
                             <!-- Submit Button -->
                             <div class="d-grid mt-5">
@@ -103,5 +144,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+const password = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", function () {
+    if (password.type === "password") {
+        password.type = "text";
+        this.classList.remove("fa-eye");
+        this.classList.add("fa-eye-slash");
+    } else {
+        password.type = "password";
+        this.classList.remove("fa-eye-slash");
+        this.classList.add("fa-eye");
+    }
+});
+</script>
 </body>
 </html>
