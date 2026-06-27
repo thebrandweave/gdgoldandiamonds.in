@@ -157,7 +157,7 @@ nav#navbarVertical .navbar-divider {
   background-color: rgba(174, 86, 123, 0.03) !important;
 }
 .table a {
-  color: var(--color-magenta) !important;
+  /* color: var(--color-magenta) !important; */
   text-decoration: none;
   font-weight: 500;
 }
