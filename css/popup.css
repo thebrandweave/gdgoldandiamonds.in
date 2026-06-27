@@ -107,18 +107,26 @@
 .close-popup-btn {
   position: absolute;
   top: 15px;
-  right: 20px;
-  font-size: 2rem;
-  color: var(--color-cream) !important;
-  z-index: 3;
-  text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff !important;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  z-index: 10;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   line-height: 1;
-  transition: transform 0.2s;
 }
 .close-popup-btn:hover {
-  transform: scale(1.1);
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: scale(1.05);
   color: var(--color-gold) !important;
 }
 
@@ -222,4 +230,129 @@
   border-color: var(--color-magenta);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(184, 40, 95, 0.4);
+}
+
+/* Premium Promo Card (Manual database-driven popup) */
+.premium-promo-card {
+  position: relative;
+  max-width: 380px; /* Tighter layout width */
+  width: 90%;
+  background-color: var(--color-cream-light);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--color-gold);
+  z-index: 1050;
+  animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-image-container {
+  /* width: 100%; */
+  /* max-height: 380px; Limit image height to ensure everything fits on mobile screen */
+  /* position: relative; */
+  background-color: var(--color-cream-light); /* Clean blending background */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow: hidden; */
+  /* margin-bottom:31px; */
+}
+
+.premium-promo-image {
+  max-width: 100%;
+  /* max-height: 380px; */
+  /* width: auto; */
+  /* height: auto; */
+  object-fit: contain; /* Displays the flyer image fully in its original ratio */
+  display: block;
+  /* margin: 0 auto; */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.premium-promo-card:hover .premium-promo-image {
+  transform: scale(1.03);
+}
+
+.premium-promo-body {
+  padding: 5px 0px 5px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-cream-light) 0%, var(--color-cream) 100%);
+  border-top: 1px solid rgba(226, 197, 138, 0.15);
+}
+
+.promo-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--color-magenta);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.promo-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.promo-divider {
+  width: 35px;
+  height: 1px;
+  background-color: var(--color-gold);
+  margin: 0 auto 14px;
+}
+
+.btn-promo-close {
+  display: inline-block;
+  padding: 8px 18px;
+  background: transparent;
+  color: var(--color-magenta) !important;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 50px; /* Elegant pill format */
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1.5px solid var(--color-magenta);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-promo-close:hover {
+  background: rgba(174, 86, 123, 0.05);
+  border-color: var(--color-rose);
+  color: var(--color-rose) !important;
+}
+
+.btn-promo-action {
+  display: inline-block;
+  padding: 8px 20px;
+  background: var(--gradient-magenta-rose);
+  color: #fff !important;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 50px; /* Elegant pill format */
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 10px rgba(174, 86, 123, 0.15);
+  white-space: nowrap;
+}
+
+.btn-promo-action:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--glow-magenta);
+  background: linear-gradient(135deg, var(--color-rose) 0%, var(--color-magenta) 100%);
 }

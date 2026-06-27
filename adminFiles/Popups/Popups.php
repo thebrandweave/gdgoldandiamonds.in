@@ -221,10 +221,7 @@ if (!empty($bg_images)) {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Brand -->
-                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/liyaslogo.png" alt="Logo">
-                    GD Gold & Diamonds
-                </a>
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 d-block text-center" href="../index.php"><img src="../images/liyaslogo11-1.png" alt="Logo"></a>
                 
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidebarCollapse">
@@ -313,19 +310,8 @@ if (!empty($bg_images)) {
                             </div>
                         </div>
                         
-                        <!-- Navigation Tabs -->
-                        <ul class="nav nav-tabs mt-4 overflow-x border-0" id="popupTabs" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link <?php echo $settings['mode'] !== 'manual' ? 'active' : ''; ?>" id="auto-tab" data-bs-toggle="tab" data-bs-target="#auto-pane" type="button" role="tab" aria-controls="auto-pane" aria-selected="<?php echo $settings['mode'] !== 'manual' ? 'true' : 'false'; ?>">
-                                    <i class="bi bi-robot me-2"></i>Automated Gold Rate Popup
-                                </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link <?php echo $settings['mode'] === 'manual' ? 'active' : ''; ?>" id="manual-tab" data-bs-toggle="tab" data-bs-target="#manual-pane" type="button" role="tab" aria-controls="manual-pane" aria-selected="<?php echo $settings['mode'] === 'manual' ? 'true' : 'false'; ?>">
-                                    <i class="bi bi-card-image me-2"></i>Manual Popups List
-                                </button>
-                            </li>
-                        </ul>
+                        <!-- Simplified Header Info -->
+                        <span class="text-muted small">Configure promotional popups and banner advertisements displayed on homepage load.</span>
                     </div>
                 </div>
             </header>
@@ -357,33 +343,6 @@ if (!empty($bg_images)) {
                                 case 'settings_error':
                                     echo 'Error: Failed to save popup settings.';
                                     break;
-                                case 'upload_success':
-                                    echo 'Background image successfully uploaded.';
-                                    break;
-                                case 'upload_failed':
-                                    echo 'Error: Failed to upload image.';
-                                    break;
-                                case 'upload_error':
-                                    echo 'Error: Upload process encountered an error.';
-                                    break;
-                                case 'delete_success':
-                                    echo 'Background image successfully deleted.';
-                                    break;
-                                case 'delete_failed':
-                                    echo 'Error: Failed to delete background image.';
-                                    break;
-                                case 'file_not_found':
-                                    echo 'Error: The requested background image file does not exist.';
-                                    break;
-                                case 'invalid_image':
-                                    echo 'Error: The file is not a valid image.';
-                                    break;
-                                case 'too_large':
-                                    echo 'Error: Image is too large (maximum size is 5MB).';
-                                    break;
-                                case 'invalid_format':
-                                    echo 'Error: Invalid format. Only JPG, JPEG, PNG, and WEBP files are allowed.';
-                                    break;
                                 default:
                                     echo 'Operation completed.';
                             }
@@ -392,202 +351,87 @@ if (!empty($bg_images)) {
                     </div>
                 <?php endif; ?>
 
-                <!-- Tab Content -->
-                <div class="tab-content" id="popupTabsContent">
-                    
-                    <!-- Pane 1: Automated Gold Rate Popup -->
-                    <div class="tab-pane fade <?php echo $settings['mode'] !== 'manual' ? 'show active' : ''; ?>" id="auto-pane" role="tabpanel" aria-labelledby="auto-tab">
-                        <div class="row g-5">
-                            
-                            <!-- Left Column: Settings and Uploads -->
-                            <div class="col-xl-7">
-                                <!-- Card 1: Configuration settings -->
-                                <div class="card shadow-sm border-0 mb-5">
-                                    <div class="card-body">
-                                        <h3 class="card-title mb-4"><i class="bi bi-gear me-2"></i>Popup Activation Mode</h3>
-                                        <form action="manage_settings.php" method="POST">
-                                            <div class="mb-4">
-                                                <label class="form-label d-block fw-semibold mb-2">Display State</label>
-                                                <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" role="switch" id="enabledSwitch" name="enabled" value="1" <?php echo $settings['enabled'] ? 'checked' : ''; ?>>
-                                                    <label class="form-check-label" for="enabledSwitch">Enable popup on public homepage</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="mb-4">
-                                                <label class="form-label fw-semibold mb-2">Popup Content Mode</label>
-                                                <div class="form-check mb-2">
-                                                    <input class="form-check-input" type="radio" name="mode" id="modeAuto" value="automated" <?php echo $settings['mode'] === 'automated' ? 'checked' : ''; ?>>
-                                                    <label class="form-check-label" for="modeAuto">
-                                                        <strong>Automated Gold Rate Mode</strong> (Highly Recommended)
-                                                        <span class="d-block text-muted small">Automatically pulls live rates from APIs and displays them overlaid on rotating jewelry backgrounds.</span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="mode" id="modeManual" value="manual" <?php echo $settings['mode'] === 'manual' ? 'checked' : ''; ?>>
-                                                    <label class="form-check-label" for="modeManual">
-                                                        <strong>Manual Mode</strong>
-                                                        <span class="d-block text-muted small">Displays the latest banner uploaded manually in the "Manual Popups List" tab.</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-
-                                            <div class="row g-3 mb-4">
-                                                <div class="col-md-6">
-                                                    <label for="gold_22k" class="form-label fw-semibold">22K Gold Rate (₹ / gm)</label>
-                                                    <input type="number" class="form-control" id="gold_22k" name="gold_22k" placeholder="e.g. 13430" value="<?php echo isset($settings['gold_22k']) ? htmlspecialchars($settings['gold_22k']) : '13430'; ?>" required>
-                                                    <div class="form-text">Configure today's local 22K rate.</div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label for="gold_24k" class="form-label fw-semibold">24K Gold Rate (₹ / gm)</label>
-                                                    <input type="number" class="form-control" id="gold_24k" name="gold_24k" placeholder="e.g. 14651" value="<?php echo isset($settings['gold_24k']) ? htmlspecialchars($settings['gold_24k']) : '14651'; ?>" required>
-                                                    <div class="form-text">Configure today's local 24K rate.</div>
-                                                </div>
-                                            </div>
-
-                                            <button type="submit" class="btn btn-primary px-4"><i class="bi bi-save me-2"></i>Save Configuration</button>
-                                        </form>
-                                    </div>
+                <!-- Configuration Card -->
+                <div class="card shadow-sm border-0 mb-5">
+                    <div class="card-body">
+                        <h3 class="card-title mb-3 text-magenta"><i class="bi bi-gear me-2"></i>Popup Display Configuration</h3>
+                        <form action="manage_settings.php" method="POST">
+                            <div class="mb-4">
+                                <label class="form-label d-block fw-semibold mb-2">Display State</label>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="enabledSwitch" name="enabled" value="1" <?php echo $settings['enabled'] ? 'checked' : ''; ?>>
+                                    <label class="form-check-label text-dark fw-medium" for="enabledSwitch">Enable promotional popup banner on homepage</label>
                                 </div>
-
-                                <!-- Card 2: Background Images Uploads -->
-                                <div class="card shadow-sm border-0 mb-5">
-                                    <div class="card-body">
-                                        <h3 class="card-title mb-4"><i class="bi bi-images me-2"></i>Jewelry Background Images</h3>
-                                        
-                                        <!-- Upload Form -->
-                                        <form action="manage_backgrounds.php" method="POST" enctype="multipart/form-data" class="mb-5 bg-light p-3 rounded border">
-                                            <label class="form-label fw-bold mb-2">Upload New Jewelry Background</label>
-                                            <div class="input-group">
-                                                <input type="file" class="form-control" name="bg_image" id="bg_image" accept="image/png, image/jpeg, image/jpg, image/webp" required>
-                                                <button class="btn btn-primary" type="submit"><i class="bi bi-cloud-arrow-up me-1"></i>Upload</button>
-                                            </div>
-                                            <div class="form-text text-muted">Supports JPG, JPEG, PNG, and WEBP. Recommended size: 1080x1080 or square aspect ratio. Max 5MB.</div>
-                                        </form>
-
-                                        <!-- Images Grid -->
-                                        <h5 class="fw-bold mb-3">Current Background Library (<?php echo count($bg_images); ?> uploaded)</h5>
-                                        <?php if (empty($bg_images)): ?>
-                                            <div class="alert alert-info py-3 mb-0">
-                                                <i class="bi bi-info-circle-fill me-2"></i>
-                                                No custom backgrounds uploaded yet. The system is currently using default catalog fallback images. Upload a background to customize!
-                                            </div>
-                                        <?php else: ?>
-                                            <div class="row g-3">
-                                                <?php foreach ($bg_images as $index => $img): ?>
-                                                    <div class="col-sm-4 col-6">
-                                                        <div class="bg-thumb-container">
-                                                            <img src="../uploadedFiles/gold_rate_backgrounds/<?php echo htmlspecialchars($img); ?>" alt="Background Thumbnail">
-                                                            <span class="bg-thumb-badge">Bg #<?php echo ($index + 1); ?></span>
-                                                            <button onclick="if(confirm('Are you sure you want to delete this background?')) { window.location.href='manage_backgrounds.php?action=delete&file=<?php echo urlencode($img); ?>'; }" class="bg-thumb-delete"><i class="bi bi-trash"></i></button>
-                                                        </div>
-                                                    </div>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        <?php endif; ?>
-                                    </div>
-                                </div>
+                                <div class="form-text mt-2 text-muted">When enabled, the latest active banner uploaded below will display automatically to visitors on page load.</div>
                             </div>
-
-                            <!-- Right Column: Live Popup Preview -->
-                            <div class="col-xl-5">
-                                <div class="card shadow-sm border-0 sticky-xl-top" style="top: 20px; z-index: 10;">
-                                    <div class="card-body">
-                                        <h3 class="card-title mb-4"><i class="bi bi-eye me-2"></i>Live Frontend Preview</h3>
-                                        <div class="preview-container mb-3">
-                                            <!-- Responsive Styled Modal Preview -->
-                                            <div class="gold-rate-popup-preview" style="background-image: url('<?php echo htmlspecialchars($selected_preview_bg); ?>');">
-                                                <a class="preview-close-btn">&times;</a>
-                                                <div class="popup-preview-content">
-                                                    <div class="popup-preview-glass-card">
-                                                        <div class="popup-preview-title">Today's Gold Rate</div>
-                                                        <div class="popup-preview-subtitle">Liyas Gold & Diamonds</div>
-                                                        
-                                                        <div class="preview-rate-row">
-                                                            <span class="preview-rate-label"><i class="bi bi-award me-1"></i>22K Gold (916)</span>
-                                                            <span class="preview-rate-val">₹ <?php echo $rate_22k; ?> / g</span>
-                                                        </div>
-                                                        <div class="preview-rate-row">
-                                                            <span class="preview-rate-label"><i class="bi bi-award-fill me-1"></i>24K Gold (Pure)</span>
-                                                            <span class="preview-rate-val">₹ <?php echo $rate_24k; ?> / g</span>
-                                                        </div>
-                                                        
-                                                        <div class="preview-timestamp">
-                                                            Last Updated: <?php echo $updated_at; ?>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <a href="https://wa.me/917349739580?text=Hello%20Liyas%20Gold%20and%20Diamonds,%20I'm%20inquiring%20about%20today's%20gold%20rate%20and%20collections." target="_blank" class="btn-preview-cta">
-                                                        <i class="bi bi-whatsapp me-2"></i>Enquire on WhatsApp
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-text text-center text-muted">
-                                            This is an exact preview of how the gold rate popup card renders dynamically over the selected background. 
-                                            On the live site, the background image automatically cycles every day.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <button type="submit" class="btn btn-primary px-4" style="background-color: var(--color-magenta); border-color: var(--color-magenta);"><i class="bi bi-save me-2"></i>Save Configuration</button>
+                        </form>
                     </div>
+                </div>
 
-                    <!-- Pane 2: Manual Popups List -->
-                    <div class="tab-pane fade <?php echo $settings['mode'] === 'manual' ? 'show active' : ''; ?>" id="manual-pane" role="tabpanel" aria-labelledby="manual-tab">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center mb-4">
-                                    <h3 class="mb-0"><i class="bi bi-list-ul me-2"></i>Manual Popups</h3>
-                                    <a href="./Add-Popups.php" class="btn btn-primary"><i class="bi bi-plus-lg me-1"></i>Add New Popup</a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-striped align-middle">
-                                        <thead>
-                                            <tr>
-                                                <th>Popup ID</th>
-                                                <th>Image Preview</th>
-                                                <th>Title</th>
-                                                <th>Link URL</th>
-                                                <th>Created At</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            // Re-fetch all popups from the database
-                                            $sql = "SELECT * FROM popups ORDER BY created_at DESC";
-                                            $result = $conn->query($sql);
+                <!-- Manual Popups List Card -->
+                <div class="card shadow-sm border-0 mb-5">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="mb-0 text-magenta"><i class="bi-card-image me-2"></i>Promotional Popup Banners</h3>
+                            <a href="./Add-Popups.php" class="btn btn-primary btn-sm" style="background-color: var(--color-magenta); border-color: var(--color-magenta);"><i class="bi bi-plus-lg me-1"></i>Add New Banner</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Banner ID</th>
+                                        <th>Image Preview</th>
+                                        <th>Title</th>
+                                        <th>Created At</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    // Re-fetch all popups from the database
+                                    $sql = "SELECT * FROM popups ORDER BY created_at DESC";
+                                    $result = $conn->query($sql);
 
-                                            if ($result && $result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
-                                                    $imgSrc = str_replace('../', './adminFiles/', $row['popup_image_url']);
-                                                    echo "<tr>
-                                                            <td>" . htmlspecialchars($row['popup_id']) . "</td>
-                                                            <td>
-                                                                <img src='../" . htmlspecialchars($row['popup_image_url']) . "' class='rounded' style='width: 60px; height: 60px; object-fit: cover;' alt='Popup image'>
-                                                            </td>
-                                                            <td><strong>" . htmlspecialchars($row['title']) . "</strong></td>
-                                                            <td><a href='" . htmlspecialchars($row['link_url']) . "' target='_blank'>" . htmlspecialchars($row['link_url']) . "</a></td>
-                                                            <td>" . htmlspecialchars($row['created_at']) . "</td>
-                                                            <td>
-                                                                <a href='Delete_Popups.php?id=" . $row['popup_id']  . "' onclick='return confirm(\"Are you sure you want to delete this popup?\")' class='btn d-inline-flex btn-sm btn-danger border-base mx-1'>
-                                                                    <span class='pe-2'>
-                                                                        <i class='bi bi-trash'></i>
-                                                                    </span>
-                                                                    <span>Delete</span>
-                                                                </a>
-                                                            </td>
-                                                          </tr>";
-                                                }
-                                            } else {
-                                                echo "<tr><td colspan='6' class='text-center py-4'>No manual popups found</td></tr>";
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                                    if ($result && $result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>
+                                                    <td>" . htmlspecialchars($row['popup_id']) . "</td>
+                                                 <td>
+    <img src='" . htmlspecialchars($row['popup_image_url']) . "'
+         class='rounded border preview-img'
+         style='width:70px;height:70px;object-fit:cover;cursor:pointer;transition:transform .2s;'
+         onmouseover='this.style.transform=\"scale(1.05)\"'
+         onmouseout='this.style.transform=\"scale(1)\"'
+         data-bs-toggle='modal'
+         data-bs-target='#imagePreviewModal'
+         data-img='" . htmlspecialchars($row['popup_image_url']) . "'
+         alt='Popup image'>
+</td>
+                                                    <td><strong class='text-dark'>" . htmlspecialchars($row['title']) . "</strong></td>
+                                                    <td>" . htmlspecialchars($row['created_at']) . "</td>
+                                                    <td>
+                                                        <a href='Edit-Popups.php?id=" . $row['popup_id']  . "' class='btn d-inline-flex btn-sm btn-neutral border-base mx-1'>
+                                                            <span class='pe-2'>
+                                                                <i class='bi bi-pencil'></i>
+                                                            </span>
+                                                            <span>Edit</span>
+                                                        </a>
+                                                        <a href='Delete_Popups.php?id=" . $row['popup_id']  . "' onclick='return confirm(\"Are you sure you want to delete this popup?\")' class='btn d-inline-flex btn-sm btn-danger border-base mx-1'>
+                                                            <span class='pe-2'>
+                                                                <i class='bi bi-trash'></i>
+                                                            </span>
+                                                            <span>Delete</span>
+                                                        </a>
+                                                    </td>
+                                                  </tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5' class='text-center py-4'>No custom promotional banners found</td></tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -598,6 +442,36 @@ if (!empty($bg_images)) {
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         </div>
     </div>
+    <!-- Image Preview Modal -->
+<div class="modal fade" id="imagePreviewModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-md" style="max-width:500px;">
+                <div class="modal-content border-0">
+            <div class="modal-header">
+                <h5 class="modal-title">Image Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+           <div class="modal-body text-center p-2">
+    <img id="previewImage"
+         src=""
+         class="img-fluid rounded"
+         style="max-height:450px; max-width:100%; object-fit:contain;">
+</div>
+        </div>
+    </div>
+</div>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("imagePreviewModal");
+
+    modal.addEventListener("show.bs.modal", function (event) {
+        const img = event.relatedTarget;
+        const imageUrl = img.getAttribute("data-img");
+
+        document.getElementById("previewImage").src = imageUrl;
+    });
+});
+</script>
 <?php $conn->close(); ?>
 </html>

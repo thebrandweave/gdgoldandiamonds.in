@@ -69,10 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/liyaslogo1.png" alt="...">
-                    GD Gold & Diamonds
-                </a>
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 d-block text-center" href="../index.php"><img src="../images/liyaslogo11-1.png" alt="..."></a>
                 <!-- User menu (mobile) -->
                 <div class="navbar-user d-lg-none">
                     <div class="dropdown">

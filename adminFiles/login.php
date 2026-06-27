@@ -57,33 +57,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login - Admin</title>
+    <title>Login - Liyas Admin Hub</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container mt-5">
+<body class="d-flex align-items-center justify-content-center" style="min-height: 100vh; background: var(--bg-gradient-main);">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h3>Login</h3>
-                    </div>
-                    <div class="card-body">
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center mb-4">
+                    <img src="./images/liyaslogo11-1.png" alt="Liyas Logo" style="max-height: 90px; object-fit: contain;">
+                </div>
+                <div class="card shadow-premium border-0" style="border-radius: 16px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="text-center mb-4 text-magenta fw-bold" style="font-family: var(--font-serif); font-size: 1.8rem;">Admin Login</h3>
+                        
+                        <?php if ($_SERVER['REQUEST_METHOD'] == 'POST'): ?>
+                            <!-- Show error directly if login failed -->
+                            <div class="alert alert-danger py-2 px-3 small mb-4" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i> Invalid email or password.
+                            </div>
+                        <?php endif; ?>
+
                         <form method="POST" action="">
                             <!-- Email -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
+                            <div class="mb-4">
+                                <label for="email" class="form-label fw-semibold">Email Address</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                             </div>
                             <!-- Password -->
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                            <div class="mb-4">
+                                <label for="password" class="form-label fw-semibold">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
                             </div>
 
                             <!-- Submit Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                            <div class="d-grid mt-5">
+                                <button type="submit" class="btn btn-primary btn-lg" style="padding: 12px !important;">Sign In</button>
                             </div>
                         </form>
                     </div>

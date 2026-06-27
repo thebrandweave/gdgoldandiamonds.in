@@ -139,46 +139,153 @@ include("./adminFiles/config.php");
   </section>
 
   <!-- Showroom Visit CTA Form & Banner -->
-  <section class="section-padding bg-cream-light" id="book-visit" style="padding-top: 30px;">
+ <section class="premium-book-section py-5" id="book-visit">
     <div class="container">
-      <div class="contact-showroom-box" data-aos="fade-up">
-        <div class="row align-items-center g-0">
-          
-          <!-- Booking Form Left -->
-          <div class="col-lg-6 contact-showroom-content">
-            <h3>Visit Our Showroom</h3>
-            <p>Experience our exquisite collections in person. Fill out the quick registration form to schedule a personalized shopping assistance session at our store.</p>
-            
-            <form method="POST" action="./sendMail.php" class="mt-4">
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" name="full_name" placeholder="Full Name" required style="border-radius: 4px; padding: 12px; background-color: rgba(255,255,255,0.95); border: 1px solid rgba(226,197,138,0.3);" />
+
+        <div class="row g-0 premium-book-wrapper shadow-lg">
+
+            <!-- LEFT IMAGE -->
+            <div class="col-lg-5">
+
+                <div class="premium-showroom-image">
+
+                    <img src="./images/showroom_interior.png"
+                        class="img-fluid w-100 h-100"
+                        alt="Liyas Gold Showroom">
+
+                    <div class="image-overlay"></div>
+
+                    <div class="visit-card">
+
+                        <span class="small-heading">
+                            LUXURY EXPERIENCE
+                        </span>
+
+                        <h2>
+                            Visit Our Showroom
+                        </h2>
+
+                        <p>
+                            Discover handcrafted gold, diamond and bridal collections with
+                            personalized assistance from our jewellery experts.
+                        </p>
+
+                        <div class="visit-points">
+
+                            <div>
+                                <i class="fa fa-check-circle"></i>
+                                Certified Jewellery
+                            </div>
+
+                            <div>
+                                <i class="fa fa-check-circle"></i>
+                                BIS Hallmarked Gold
+                            </div>
+
+                            <div>
+                                <i class="fa fa-check-circle"></i>
+                                Custom Jewellery Orders
+                            </div>
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="col-sm-6">
-                  <input type="email" class="form-control" name="email" placeholder="Email Address" required style="border-radius: 4px; padding: 12px; background-color: rgba(255,255,255,0.95); border: 1px solid rgba(226,197,138,0.3);" />
+
+            </div>
+
+            <!-- RIGHT FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="premium-form">
+
+                    <span class="small-heading">
+                        BOOK AN APPOINTMENT
+                    </span>
+
+                    <h2>
+                        Schedule Your Visit
+                    </h2>
+
+                    <p class="mb-4">
+                        Fill in your details and our jewellery consultant will contact you
+                        to confirm your showroom visit.
+                    </p>
+
+                    <form action="./sendMail.php" method="POST">
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-4">
+
+                                <input
+                                    type="text"
+                                    name="full_name"
+                                    class="form-control premium-input"
+                                    placeholder="Full Name"
+                                    required>
+
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control premium-input"
+                                    placeholder="Email Address"
+                                    required>
+
+                            </div>
+
+                            <div class="col-12 mb-4">
+
+                                <input
+                                    type="tel"
+                                    name="phone"
+                                    class="form-control premium-input"
+                                    placeholder="Phone Number"
+                                    required>
+
+                            </div>
+
+                            <div class="col-12 mb-4">
+
+                                <textarea
+                                    name="message"
+                                    rows="5"
+                                    class="form-control premium-input"
+                                    placeholder="Tell us your preferred date, time or enquiry..."
+                                    required></textarea>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <button class="premium-btn w-100">
+
+                                    Book My Visit
+
+                                    <i class="fa fa-long-arrow-right ms-2"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
                 </div>
-                <div class="col-12">
-                  <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required style="border-radius: 4px; padding: 12px; background-color: rgba(255,255,255,0.95); border: 1px solid rgba(226,197,138,0.3);" />
-                </div>
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Your Message or Preferred Timings" required style="resize: none; border-radius: 4px; padding: 12px; background-color: rgba(255,255,255,0.95); border: 1px solid rgba(226,197,138,0.3);"></textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn-gold-filled w-100 py-3" style="text-align: center;">Book Your Visit</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          
-          <!-- Showroom Interior Image Right -->
-          <div class="col-lg-6">
-            <img src="./images/showroom_interior.png" class="w-100 contact-showroom-img" alt="Liyas Gold Showroom Interior" />
-          </div>
-          
+
+            </div>
+
         </div>
-      </div>
+
     </div>
-  </section>
+</section>
 
   <!-- Include Shared Footer Component -->
   <?php include('./footer.php'); ?>

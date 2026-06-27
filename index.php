@@ -14,12 +14,12 @@ include("./adminFiles/config.php");
   <title>Liyas Gold and Diamonds - Timeless Elegance</title>
   
   <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-  <link rel="stylesheet" href="./css/style.css?v=1.2" />
-  <link rel="stylesheet" href="./css/navBar.css?v=1.2" />
-  <link rel="stylesheet" href="./css/footer.css?v=1.2" />
-  <link rel="stylesheet" href="./css/testimonials.css?v=1.2" />
-  <link rel="stylesheet" href="./css/responsive/phone.css?v=1.2">
-  <link rel="stylesheet" href="./css/popup.css?v=1.2">
+  <link rel="stylesheet" href="./css/style.css?v=<?php echo filemtime('./css/style.css'); ?>" />
+  <link rel="stylesheet" href="./css/navBar.css?v=<?php echo filemtime('./css/navBar.css'); ?>" />
+  <link rel="stylesheet" href="./css/footer.css?v=<?php echo filemtime('./css/footer.css'); ?>" />
+  <link rel="stylesheet" href="./css/testimonials.css?v=<?php echo filemtime('./css/testimonials.css'); ?>" />
+  <link rel="stylesheet" href="./css/responsive/phone.css?v=<?php echo filemtime('./css/responsive/phone.css'); ?>">
+  <link rel="stylesheet" href="./css/popup.css?v=<?php echo filemtime('./css/popup.css'); ?>">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <!-- Font Awesome -->
@@ -51,88 +51,37 @@ include("./adminFiles/config.php");
   // Load settings
   $settingsFile = __DIR__ . '/adminFiles/Popups/popup_settings.json';
   $popup_settings = [
-      'mode' => 'automated',
       'enabled' => true
   ];
   if (file_exists($settingsFile)) {
-      $popup_settings = json_decode(file_get_contents($settingsFile), true) ?: $popup_settings;
+      $settings_data = json_decode(file_get_contents($settingsFile), true);
+      if (isset($settings_data['enabled'])) {
+          $popup_settings['enabled'] = $settings_data['enabled'];
+      }
   }
 
   if ($popup_settings['enabled']) {
-      if ($popup_settings['mode'] === 'manual') {
-          // Manual database-driven popup
-          $pop_sql = "SELECT * FROM popups ORDER BY created_at DESC LIMIT 1";
-          $pop_result = $conn->query($pop_sql);
-          if ($pop_result && $pop_result->num_rows > 0) {
-              $ad = $pop_result->fetch_assoc();
-              ?>
-              <div class="popupAd" id="offerModal">
-                <div class="custom-modal" style="border: 2px solid var(--color-gold); background-color: var(--color-cream-light);">
-                  <a onclick="closePopup()" class="close-btn" style="color: var(--color-magenta);">&times;</a>
-                  <img src="<?php echo htmlspecialchars(str_replace('../', './adminFiles/', $ad['popup_image_url'])); ?>"
-                    alt="<?php echo htmlspecialchars($ad['title']); ?>" class="promo-image" style="border: 1px solid var(--color-gold);">
-                  <h5 class="text-magenta mt-3"><?php echo htmlspecialchars($ad['title']); ?></h5>
-                  <a onclick="closePopup()" class="btn btn-magenta-filled w-100 mt-2">Close</a>
-                </div>
-              </div>
-              <?php
-          }
-      } else {
-          // Automated Gold Rate Popup
-          $rates = get_live_gold_rates();
-          $rate_22k = isset($rates['gold_22k']) ? number_format($rates['gold_22k']) : '13,370';
-          $rate_24k = isset($rates['gold_24k']) ? number_format($rates['gold_24k']) : '14,585';
-          $updated_at = isset($rates['timestamp']) ? date('d M Y, h:i A', $rates['timestamp']) : date('d M Y, h:i A');
-
-          // Find backgrounds
-          $bg_dir = __DIR__ . '/adminFiles/uploadedFiles/gold_rate_backgrounds/';
-          $bg_images = [];
-          if (file_exists($bg_dir) && is_dir($bg_dir)) {
-              $files = glob($bg_dir . "*.{jpg,jpeg,png,webp}", GLOB_BRACE);
-              if ($files) {
-                  foreach ($files as $file) {
-                      $bg_images[] = './adminFiles/uploadedFiles/gold_rate_backgrounds/' . basename($file);
-                  }
-              }
-          }
-
-          if (empty($bg_images)) {
-              $bg_images = [
-                  './images/backgrounds/bg1.jpg',
-                  './images/backgrounds/bg2.jpg',
-                  './images/backgrounds/bg3.jpg'
-              ];
-          }
-
-          // Cycle backgrounds daily
-          $day_index = (int)date('z') % count($bg_images);
-          $selected_bg = $bg_images[$day_index];
+      // Fetch latest manual promo popup from database
+      $pop_sql = "SELECT * FROM popups ORDER BY created_at DESC LIMIT 1";
+      $pop_result = $conn->query($pop_sql);
+      if ($pop_result && $pop_result->num_rows > 0) {
+          $ad = $pop_result->fetch_assoc();
+          $promo_img = './adminFiles/' . str_replace('../', '', htmlspecialchars($ad['popup_image_url']));
           ?>
           <div class="popupAd" id="offerModal">
-            <div class="gold-rate-popup-card" style="background-image: url('<?php echo htmlspecialchars($selected_bg); ?>');">
+            <div class="premium-promo-card">
               <a onclick="closePopup()" class="close-popup-btn">&times;</a>
-              <div class="gold-rate-popup-content">
-                <div class="gold-rate-glass-card">
-                  <h4 class="gold-rate-popup-title">Today's Gold Rate</h4>
-                  <p class="gold-rate-popup-subtitle">Liyas Gold & Diamonds</p>
-                  
-                  <div class="gold-rate-popup-row">
-                    <span class="gold-rate-popup-label"><i class="fa fa-certificate"></i> 22K Gold (916)</span>
-                    <span class="gold-rate-popup-value">₹ <?php echo $rate_22k; ?> / gm</span>
-                  </div>
-                  <div class="gold-rate-popup-row">
-                    <span class="gold-rate-popup-label"><i class="fa fa-star"></i> 24K Gold (Pure)</span>
-                    <span class="gold-rate-popup-value">₹ <?php echo $rate_24k; ?> / gm</span>
-                  </div>
-                  
-                  <div class="gold-rate-popup-timestamp">
-                    Last Updated: <?php echo $updated_at; ?>
-                  </div>
+              <div class="promo-image-container">
+                <img src="<?php echo $promo_img; ?>" alt="<?php echo htmlspecialchars($ad['title']); ?>" class="premium-promo-image">
+              </div>
+              <div class="premium-promo-body">
+                <!-- <span class="promo-label">Exclusive Announcement</span> -->
+                <h4 class="promo-title"><?php echo htmlspecialchars($ad['title']); ?></h4>
+                <div class="promo-divider"></div>
+                <div class="d-flex gap-2 justify-content-center">
+                  <a onclick="closePopup()" class="btn-promo-close">Close</a>
+                  <a href="<?php echo (!empty($ad['link_url']) && $ad['link_url'] !== '-') ? htmlspecialchars($ad['link_url']) : './collections.php'; ?>" class="btn-promo-action">View Collections</a>
                 </div>
-                
-                <a href="https://wa.me/917349739580?text=Hello%20Liyas%20Gold%20and%20Diamonds,%20I'm%20inquiring%20about%20today's%20gold%20rate%20and%20collections." target="_blank" class="btn-gold-rate-cta">
-                  <i class="fa fa-whatsapp"></i> Enquire on WhatsApp
-                </a>
               </div>
             </div>
           </div>
@@ -143,28 +92,32 @@ include("./adminFiles/config.php");
 
   <!-- 1. Hero Section -->
   <section class="home-hero">
-    <div class="container-fluid px-4 px-lg-5">
+    <!-- Premium Ken Burns Zoom Background -->
+    <div class="home-hero-bg"></div>
+    
+    <div class="container-fluid px-4 px-lg-5" style="position: relative; z-index: 2;">
       <div class="row align-items-center g-5">
         <!-- Hero Text -->
         <div class="col-lg-6 home-hero-text" data-aos="fade-right" data-aos-duration="1000">
-          <h1 style="font-family: var(--font-serif); font-size: 3.6rem; font-weight: 700; line-height: 1.2; color: #ffffff;">
+          <span class="hero-badge" data-aos="fade-down" data-aos-delay="200">Liyas Gold & Diamonds</span>
+          <h1 class="hero-title">
             Timeless Elegance,<br>
             Crafted For<br>
-            Generations
+            <span class="text-gold">Generations</span>
           </h1>
-          <p class="my-4" style="font-size: 1.1rem; opacity: 0.85; line-height: 1.6; color: #f5e6ec; max-width: 460px;">
-            Where every piece tells a story<br>
-            of purity, trust and elegance.
+          <p class="hero-desc">
+            Where every piece tells a story of purity, trust, and exceptional craftsmanship. Discover our curated bridal and diamond collections today.
           </p>
-            <div class="d-flex gap-3 flex-wrap">
-              <a href="./collections.php" class="btn-hero-filled">Explore Collection</a>
-              <a href="./contact.php#book-visit" class="btn-hero-outline">Book A Visit</a>
-            </div>
+          <div class="d-flex gap-3 flex-wrap">
+            <a href="./collections.php" class="btn-hero-filled">Explore Collection</a>
+            <a href="./contact.php#book-visit" class="btn-hero-outline">Book A Visit</a>
           </div>
-          <!-- Hero Image -->
-          <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000">
-            <div class="home-hero-image-wrapper">
-              <!-- <img src="./images/model.png" class="img-fluid home-hero-image" alt="Liyas Bridal Collection Model" /> -->
+        </div>
+        
+        <!-- Hero Image -->
+        <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="100">
+          <div class="home-hero-image-wrapper">
+            <!-- <img src="./images/homepage_hero_model.png" class="img-fluid home-hero-image" alt="Liyas Gold & Diamonds Model" /> -->
           </div>
         </div>
       </div>
@@ -227,7 +180,7 @@ include("./adminFiles/config.php");
 
   <!-- 3. Bridal Edit Callout Banner -->
   <section class="section-padding bg-cream-light">
-    <div class="container">
+    <div class="">
       <div class="bridal-edit-card" data-aos="fade-up">
         <div class="row align-items-center g-0">
           <div class="col-md-6 p-5 text-white d-flex flex-column justify-content-center">

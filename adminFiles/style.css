@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  --color-magenta: #b8285f;
-  --color-rose: #d63b7e;
+  --color-magenta: #ae567b;
+  --color-rose: #cf729c;
   --color-gold: #E2C58A;
   --color-gold-hover: #F0E5CF;
   --color-cream: #FAF6F0;
@@ -20,17 +20,17 @@
   --text-dark: #2A1B22; /* Deep plum/charcoal */
   --text-muted: #7E6C75;
   
-  --border-light: rgba(184, 40, 95, 0.08);
+  --border-light: rgba(174, 86, 123, 0.08);
   --border-gold: rgba(226, 197, 138, 0.4);
-  --border-focus: #b8285f;
+  --border-focus: #ae567b;
   
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Outfit', 'Inter', sans-serif;
   
-  --gradient-primary: linear-gradient(135deg, #b8285f 0%, #e04b88 100%);
-  --gradient-hover: linear-gradient(135deg, #d63b7e 0%, #f06ca6 100%);
-  --shadow-premium: 0 10px 30px rgba(184, 40, 95, 0.05);
-  --shadow-card-hover: 0 15px 40px rgba(184, 40, 95, 0.08);
+  --gradient-primary: linear-gradient(135deg, #ae567b 0%, #cf729c 100%);
+  --gradient-hover: linear-gradient(135deg, #cf729c 0%, #e895ba 100%);
+  --shadow-premium: 0 10px 30px rgba(174, 86, 123, 0.05);
+  --shadow-card-hover: 0 15px 40px rgba(174, 86, 123, 0.08);
 }
 
 body {
@@ -66,7 +66,7 @@ header h1 {
 nav#navbarVertical {
   background-color: var(--bg-sidebar) !important;
   border-right: 1px solid var(--border-light) !important;
-  box-shadow: 5px 0 30px rgba(184, 40, 95, 0.02) !important;
+  box-shadow: 5px 0 30px rgba(174, 86, 123, 0.02) !important;
 }
 nav#navbarVertical .navbar-brand {
   font-family: var(--font-serif) !important;
@@ -75,7 +75,13 @@ nav#navbarVertical .navbar-brand {
   font-size: 1.25rem;
 }
 nav#navbarVertical .navbar-brand img {
-  max-height: 50px;
+  max-height: 75px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+nav#navbarVertical .navbar-brand:hover img {
+  transform: scale(1.05);
 }
 nav#navbarVertical .navbar-nav .nav-link {
   color: var(--text-muted) !important;
@@ -92,7 +98,7 @@ nav#navbarVertical .navbar-nav .nav-link i {
 }
 nav#navbarVertical .navbar-nav .nav-link:hover {
   color: var(--color-magenta) !important;
-  background-color: rgba(184, 40, 95, 0.03) !important;
+  background-color: rgba(174, 86, 123, 0.03) !important;
 }
 nav#navbarVertical .navbar-nav .nav-link:hover i {
   color: var(--color-magenta) !important;
@@ -123,7 +129,7 @@ nav#navbarVertical .navbar-divider {
   box-shadow: var(--shadow-card-hover) !important;
 }
 .card-header {
-  background-color: rgba(184, 40, 95, 0.01) !important;
+  background-color: rgba(174, 86, 123, 0.01) !important;
   border-bottom: 1px solid var(--border-light) !important;
 }
 
@@ -141,14 +147,14 @@ nav#navbarVertical .navbar-divider {
   border-bottom: 2px solid var(--border-light) !important;
 }
 .table td {
-  border-bottom: 1px solid rgba(184, 40, 95, 0.05) !important;
+  border-bottom: 1px solid rgba(174, 86, 123, 0.05) !important;
   background-color: transparent !important;
 }
 .table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(184, 40, 95, 0.01) !important;
+  background-color: rgba(174, 86, 123, 0.01) !important;
 }
 .table-striped tbody tr:hover {
-  background-color: rgba(184, 40, 95, 0.03) !important;
+  background-color: rgba(174, 86, 123, 0.03) !important;
 }
 .table a {
   color: var(--color-magenta) !important;
@@ -163,7 +169,7 @@ nav#navbarVertical .navbar-divider {
 /* Forms and Inputs */
 .form-control, .form-select, textarea {
   background-color: var(--bg-input) !important;
-  border: 1px solid rgba(184, 40, 95, 0.15) !important;
+  border: 1px solid rgba(174, 86, 123, 0.15) !important;
   color: var(--text-dark) !important;
   border-radius: 10px !important;
   padding: 10px 14px !important;
@@ -172,7 +178,7 @@ nav#navbarVertical .navbar-divider {
 .form-control:focus, .form-select:focus, textarea:focus {
   background-color: var(--bg-input) !important;
   border-color: var(--color-magenta) !important;
-  box-shadow: 0 0 0 3px rgba(184, 40, 95, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(174, 86, 123, 0.1) !important;
   color: var(--text-dark) !important;
 }
 .form-label {
@@ -192,22 +198,23 @@ nav#navbarVertical .navbar-divider {
   border-radius: 10px !important;
   padding: 10px 22px !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 4px 15px rgba(184, 40, 95, 0.15) !important;
+  box-shadow: 0 4px 15px rgba(174, 86, 123, 0.15) !important;
 }
 .btn-primary:hover {
   background: var(--gradient-hover) !important;
-  box-shadow: 0 6px 20px rgba(184, 40, 95, 0.25) !important;
+  box-shadow: 0 6px 20px rgba(174, 86, 123, 0.25) !important;
   transform: translateY(-1px);
 }
+
 .btn-neutral {
   background-color: #ffffff !important;
-  border: 1px solid rgba(184, 40, 95, 0.2) !important;
+  border: 1px solid rgba(174, 86, 123, 0.2) !important;
   color: var(--color-magenta) !important;
   font-weight: 600 !important;
   border-radius: 10px !important;
   padding: 10px 22px !important;
   transition: all 0.3s ease !important;
-  box-shadow: 0 2px 8px rgba(184, 40, 95, 0.02) !important;
+  box-shadow: 0 2px 8px rgba(174, 86, 123, 0.02) !important;
 }
 .btn-neutral:hover {
   background-color: #FFF0F5 !important;
@@ -268,7 +275,7 @@ nav#navbarVertical .navbar-divider {
 .alert-info {
   background-color: #FFF2F6 !important;
   color: var(--color-magenta) !important;
-  border-color: rgba(184, 40, 95, 0.2) !important;
+  border-color: rgba(174, 86, 123, 0.2) !important;
 }
 
 /* Badge & status pills */
@@ -280,7 +287,7 @@ nav#navbarVertical .navbar-divider {
 .bg-soft-primary {
   background-color: #FFF0F5 !important;
   color: var(--color-magenta) !important;
-  border: 1px solid rgba(184, 40, 95, 0.15);
+  border: 1px solid rgba(174, 86, 123, 0.15);
 }
 .bg-warning {
   background-color: #fffde7 !important;
@@ -297,11 +304,11 @@ nav#navbarVertical .navbar-divider {
   background: #fdfafb;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(184, 40, 95, 0.15);
+  background: rgba(174, 86, 123, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(184, 40, 95, 0.3);
+  background: rgba(174, 86, 123, 0.3);
 }
 
 /* Responsive Overrides */
@@ -309,4 +316,19 @@ nav#navbarVertical .navbar-divider {
     .container-fluid img {
         height: 50px;
     }
+}
+
+/* Specific button styles inside tables to override greedy generic link styling */
+.table a.btn-primary,
+.table a.btn-danger {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.table a.btn-neutral {
+  color: var(--color-magenta) !important;
+  text-decoration: none !important;
+}
+.table a.btn-neutral:hover {
+  color: var(--color-rose) !important;
+  text-decoration: none !important;
 }

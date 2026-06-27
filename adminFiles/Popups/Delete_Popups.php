@@ -37,7 +37,7 @@ if (isset($_GET['id'])) {
         // Check if a row was actually deleted
         if ($delete_stmt->affected_rows > 0) {
             // Deletion successful, now try to delete the image file
-            $image_path = $_SERVER['DOCUMENT_ROOT'] . $image_url;
+            $image_path = __DIR__ . '/' . $image_url;
             if (file_exists($image_path)) {
                 unlink($image_path);
             }

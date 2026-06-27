@@ -43,10 +43,7 @@ $result = $conn->query($sql);
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Brand -->
-                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="../images/liyaslogo1.png" alt="Liyas Logo">
-                    GD Gold & Diamonds
-                </a>
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 d-block text-center" href="../index.php"><img src="../images/liyaslogo11-1.png" alt="Liyas Logo"></a>
                 <!-- User menu (mobile) -->
                 <div class="navbar-user d-lg-none">
  

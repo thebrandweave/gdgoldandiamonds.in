@@ -29,9 +29,7 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
                 <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
-            <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-            <img src="../images/liyaslogo.png" alt="...">
-            Liyas gold & diamonds            </a>
+            <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 d-block text-center" href="../index.php"><img src="../images/liyaslogo11-1.png" alt="..."></a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
  
@@ -175,8 +173,8 @@ if (!isset($_SESSION['user_id']) || !isset($_SESSION['email'])) {
             <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="mb-3">
-            <label for="link_url" class="form-label">Link URL</label>
-            <input type="text" class="form-control" id="link_url" name="link_url" required>
+            <label for="link_url" class="form-label">Link URL (Optional)</label>
+            <input type="text" class="form-control" id="link_url" name="link_url" placeholder="e.g. ./collections.php (default)">
         </div>
         <button type="submit" class="btn btn-primary">Add Popup</button>
     </form>

@@ -13,7 +13,10 @@ include("../config.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $title = $_POST['title'];
-    $linkUrl = $_POST['link_url'];
+    $linkUrl = isset($_POST['link_url']) ? trim($_POST['link_url']) : '';
+    if ($linkUrl === '') {
+        $linkUrl = './collections.php';
+    }
 
     // Check if file was uploaded
     if (isset($_FILES["popup_image_url"]) && $_FILES["popup_image_url"]["error"] == 0) {

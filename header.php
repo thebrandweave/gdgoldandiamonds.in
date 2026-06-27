@@ -18,7 +18,7 @@ function isCollectionsActive() {
 }
 ?>
 <!-- Navigation Header Start -->
-<header id="header" style="display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; height: 80px; z-index: 999; padding: 0 40px; transition: background-color white, border-color 0.3s ease, height 0.3s ease;">
+<header id="header" style="display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; width: 100%; height: 80px; z-index: 999; padding: 0 40px; transition: background-color 0.4s ease, border-color 0.4s ease, height 0.4s ease;">
   <a href="./index.php">
     <img src="./images/liyaslogo1.png" class="logo" alt="Liyas Gold & Diamonds Logo" style="width: 120px; height: 150px; object-fit: contain;" />
   </a>

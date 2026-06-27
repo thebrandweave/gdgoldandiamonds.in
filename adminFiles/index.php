@@ -72,10 +72,7 @@ $updated_at = isset($rates['timestamp']) ? date('d M Y, h:i A', $rates['timestam
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <!-- Brand -->
-                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-                    <img src="./images/liyaslogo.png" alt="Logo">
-                    GD Gold & Diamonds
-                </a>
+                <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0 d-block text-center" href="./index.php"><img src="./images/liyaslogo11-1.png" alt="Logo"></a>
                 
                 <!-- Collapse Nav -->
                 <div class="collapse navbar-collapse" id="sidebarCollapse">
